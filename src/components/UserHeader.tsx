@@ -35,8 +35,8 @@ const UserHeader = () => {
                 <Link color={'gray.light'} >instagram.com</Link>
             </Flex>
             <Flex gap={2} >
-                <Box><BsInstagram cursor={'pointer'} size={20} /></Box>
-                <Box>
+                <Box className='icon-container'><BsInstagram cursor={'pointer'} size={20} /></Box>
+                <Box className='icon-container'>
                     <Menu>
                         <MenuButton>
                             <CgMoreO cursor={'pointer'} size={20} />
