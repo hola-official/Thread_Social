@@ -11,7 +11,7 @@ const UserHeader = () => {
                 >Aliu Musa</Text>
                 <Flex gap={2} alignItems={'center'}>
                     <Text fontSize={"sm"}>aliumusa@99</Text>
-                    
+                    <Text fontSize={'xs'} bg={'gray.dark'} color={'gray.light'} p={1} borderRadius={'full'}>threads.net</Text>
                 </Flex>
             </Box>
         </Flex>
