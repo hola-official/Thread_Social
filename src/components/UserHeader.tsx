@@ -1,6 +1,8 @@
 import React from 'react'
-import { VStack, Flex, Box, Text } from '@chakra-ui/layout'
+import { VStack, Flex, Box, Text, Link } from '@chakra-ui/layout'
 import { Avatar } from '@chakra-ui/react'
+import { BsInstagram } from "react-icons/bs";
+import { CgMoreO } from "react-icons/cg";
 
 const UserHeader = () => {
     return <VStack gap={4} alignItems={'start'}>
@@ -16,14 +18,25 @@ const UserHeader = () => {
                 </Flex>
             </Box>
             <Box>
-                <Avatar 
-                name='Aliu Musa'
-                src='/directorPro.jpeg'
-                size={'xl'}
+                <Avatar
+                    name='Aliu Musa'
+                    src='/directorPro.jpeg'
+                    size={'xl'}
                 />
             </Box>
         </Flex>
         <Text>Founder, executive chairman and CEO of DLT Africa</Text>
+        <Flex w={'full'} justifyContent={'space-between'}>
+            <Flex gap={2} alignItems={'center'}>
+                <Text color={'gray.light'} >576k followers</Text>
+                <Box w={1} h={1} bg={'gray.light'} borderRadius='%50'></Box>
+                <Link color={'gray.light'} >instagram.com</Link>
+            </Flex>
+            <Flex gap={2}>
+                <Box cursor={'pointer'}><BsInstagram /></Box>
+                <Box cursor={'pointer'}><CgMoreO /></Box>
+            </Flex>
+        </Flex>
     </VStack>
 }
 
