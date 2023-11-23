@@ -8,7 +8,7 @@ function App() {
 
   return (
     <section>
-      <Container maxW='620px'>
+      <Container maxW='620'>
         <Header />
         <Routes>
           <Route path='/:username' element={<UserPage />} />
