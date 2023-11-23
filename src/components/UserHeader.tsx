@@ -16,9 +16,14 @@ const UserHeader = () => {
                 </Flex>
             </Box>
             <Box>
-                <Avatar />
+                <Avatar 
+                name='Aliu Musa'
+                src='/directorPro.jpeg'
+                size={'xl'}
+                />
             </Box>
         </Flex>
+        <Text>Founder, executive chairman and CEO of DLT Africa</Text>
     </VStack>
 }
 
