@@ -1,5 +1,6 @@
 import React from 'react'
 import { VStack, Flex, Box, Text } from '@chakra-ui/layout'
+import { Avatar } from '@chakra-ui/react'
 
 const UserHeader = () => {
     return <VStack gap={4} alignItems={'start'}>
@@ -13,6 +14,9 @@ const UserHeader = () => {
                     <Text fontSize={"sm"}>aliumusa@99</Text>
                     <Text fontSize={'xs'} bg={'gray.dark'} color={'gray.light'} p={1} borderRadius={'full'}>threads.net</Text>
                 </Flex>
+            </Box>
+            <Box>
+                <Avatar />
             </Box>
         </Flex>
     </VStack>
