@@ -1,8 +1,12 @@
+import { Button, ButtonGroup, Container } from '@chakra-ui/react'
+
 function App() {
-  
+
   return (
     <section>
-     <h1>Hello World</h1>
+      <Container maxW='620px'>
+      
+      </Container>
     </section>
   )
 }
