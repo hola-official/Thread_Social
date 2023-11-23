@@ -6,7 +6,9 @@ function App() {
   return (
     <section>
       <Container maxW='620px'>
-      
+      <Routes>
+        <Route path='/:username' element={<Home />} />
+      </Routes>
       </Container>
     </section>
   )
