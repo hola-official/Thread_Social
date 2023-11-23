@@ -4,6 +4,8 @@ import App from './App.jsx'
 import './index.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
+import { extendTheme } from '@chakra-ui/theme-utils'
+import { ColorModeScript } from '@chakra-ui/color-mode'
 
 const style = {
   global: (props) => ({
@@ -19,9 +21,18 @@ const config = {
   useSystemColorMode: true,
 }
 
+const colors = {
+  gray: {
+    light: '#616161',
+    dark: '#1e1e1e'
+  }
+}
+
+const theme = extendTheme({ config, style, colors })
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <App />
     </ChakraProvider>
   </React.StrictMode>,
