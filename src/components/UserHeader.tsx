@@ -13,10 +13,10 @@ const UserHeader = () => {
         const currentURL = window.location.href;
         navigator.clipboard.writeText(currentURL).then(() => {
             toast({
-                title: 'Account created.',
-                description: "We've created your account for you.",
+                title: 'Success Copied.',
+                description: "Profile link copied.",
                 status: 'success',
-                duration: 9000,
+                duration: 3000,
                 isClosable: true,
             })
         })
@@ -57,7 +57,7 @@ const UserHeader = () => {
                         </MenuButton>
                         <Portal>
                             <MenuList bg={'gray.dark'}>
-                                <MenuItem bg={'gray.dark'}>Click here</MenuItem>
+                                <MenuItem bg={'gray.dark'} color={'#fff'} onClick={copyURL}>Click here</MenuItem>
                             </MenuList>
                         </Portal>
                     </Menu>
