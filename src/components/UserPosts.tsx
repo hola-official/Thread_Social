@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Flex, Avatar, Box, Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
 
-const UserPosts = () => {
+const UserPosts = ({ userAvartar, username, postTitle, postImg }) => {
 
     const [liked, setLiked] = useState(false)
     return (
@@ -64,7 +64,7 @@ const UserPosts = () => {
                     </Flex>
                     <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
                         <Text>12 replies</Text>
-                        <Box w={1} h={1} bg={"gray.light"}></Box>
+                        <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
                         <Text>200 likes</Text>
                     </Flex>
                 </Flex>
