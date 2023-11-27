@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 
 const UserPosts = () => {
   return (
-    <div>UserPosts</div>
+    <>
+    <Link to={}></Link>
+    </>
   )
 }
 
