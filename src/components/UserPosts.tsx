@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex, Avatar, Box, Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { BsThreeDots } from "react-icons/bs";
 
 const UserPosts = () => {
     return (
@@ -40,9 +41,13 @@ const UserPosts = () => {
                     </Box>
                 </Flex>
                 <Flex flex={1} flexDir={'column'} w={'full'}>
-                    <Flex>
+                    <Flex alignItems={'center'} w={'full'}>
                         <Text>Aliu Musa</Text>
-                        <Image src="/verified.png" ml={1} w={4} h={4}/>
+                        <Image src="/verified.png" ml={1} w={4} h={4} />
+                    </Flex>
+                    <Flex alignItems={'center'} w={'full'} gap={4}>
+                        <Text color={'gray.light'}>1d</Text>
+                        <BsThreeDots />
                     </Flex>
                 </Flex>
             </Flex>
