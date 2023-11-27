@@ -4,7 +4,7 @@ import React from "react";
 const Actions = ({ liked, setLiked }) => {
   return (
     <>
-      <Flex cursor={"pointer"} gap={3} my={2}>
+      <Flex cursor={"pointer"} gap={3} my={2} onClick={(e) => e.preventDefault()}>
         <svg
           aria-label="Like"
           class="x1lliihq x1n2onr6 x1yxark7"
