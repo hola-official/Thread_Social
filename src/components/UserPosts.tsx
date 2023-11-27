@@ -6,7 +6,9 @@ const UserPosts = () => {
     return (
         <Link to={"/:aliumusa/post/:1"}>
             <Flex gap={3} mb={4} py={5}>
-                <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
+                <Flex>
+                    <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
+                </Flex>
             </Flex>
         </Link>
     );
