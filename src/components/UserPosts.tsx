@@ -52,8 +52,8 @@ const UserPosts = () => {
                         </Flex>
                     </Flex>
                 <Text>Hello Thread!!!</Text>
-                <Box borderRadius={6} overflow={'hidden'} border={'1px solid white'}>
-                    <Image src="/aliumusa.jpeg"/>
+                <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
+                    <Image src="/post3.png" width={'full'}/>
                 </Box>
                 <Flex></Flex>
                 </Flex>
