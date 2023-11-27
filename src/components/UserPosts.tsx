@@ -40,7 +40,7 @@ const UserPosts = () => {
                         />
                     </Box>
                 </Flex>
-                <Flex flex={1} flexDir={'column'}>
+                <Flex flex={1} flexDir={'column'} gap={2}>
                     <Flex justifyContent={'space-between'} w={'full'} flex={1}>
                         <Flex alignItems={'center'} w={'full'}>
                             <Text>Aliu Musa</Text>
@@ -52,6 +52,8 @@ const UserPosts = () => {
                         </Flex>
                     </Flex>
                 </Flex>
+                <Text>Hello Thread!!!</Text>
+                <Flex></Flex>
             </Flex>
         </Link>
     );
