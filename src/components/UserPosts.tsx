@@ -6,7 +6,7 @@ const UserPosts = () => {
     return (
         <Link to={"/:aliumusa/post/:1"}>
             <Flex gap={3} mb={4} py={5}>
-                <Flex >
+                <Flex flexDir={'column'}>
                     <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
                     <Box w={'1px'} h={"full"} bg={'gray.light'} my={2}></Box>
                 </Flex>
