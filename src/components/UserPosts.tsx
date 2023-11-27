@@ -6,7 +6,7 @@ import Actions from "./Actions";
 
 const UserPosts = () => {
 
-    const [liked, setLiked] = useState()
+    const [liked, setLiked] = useState(false)
     return (
         <Link to={"/:aliumusa/post/:1"}>
             <Flex gap={3} mb={4} py={5}>
