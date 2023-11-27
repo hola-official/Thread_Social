@@ -40,13 +40,13 @@ const UserPosts = () => {
                         />
                     </Box>
                 </Flex>
-                <Flex flex={1} flexDir={'column'} w={'full'}>
-                    <Flex justifyContent={'space-between'}>
+                <Flex flex={1} flexDir={'column'}>
+                    <Flex justifyContent={'space-between'} w={'full'} flex={1}>
                         <Flex alignItems={'center'} w={'full'}>
                             <Text>Aliu Musa</Text>
                             <Image src="/verified.png" ml={1} w={4} h={4} />
                         </Flex>
-                        <Flex alignItems={'center'} w={'full'} gap={4}>
+                        <Flex alignItems={'center'} gap={4}>
                             <Text color={'gray.light'}>1d</Text>
                             <BsThreeDots />
                         </Flex>
