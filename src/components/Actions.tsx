@@ -6,20 +6,19 @@ const Actions = ({ liked, setLiked }) => {
     <>
       <Flex cursor={"pointer"} gap={3} my={2}>
         <svg
-          aria-label="Unlike"
-          class="x1lliihq x1n2onr6 x18l41xo"
-          fill="currentColor"
-          height="20"
+          aria-label="Like"
+          class="x1lliihq x1n2onr6 x1yxark7"
+          fill="transparent"
+          height="19"
           role="img"
-          viewBox="0 0 20 20"
+          viewBox="0 0 24 22"
           width="20"
         >
-          <title>Unlike</title>
+          <title>Like</title>
           <path
-            d="M1.2 7.328c0 3.66 3.118 7.269 7.99 10.347.27.163.592.325.81.325.226 0 .548-.162.81-.325 4.87-3.078 7.99-6.687 7.99-10.347C18.8 4.189 16.595 2 13.737 2c-1.655 0-2.953.753-3.738 1.881C9.233 2.761 7.926 2 6.262 2c-2.85 0-5.063 2.19-5.063 5.328Z"
-            fill="currentColor"
+            d="M1 7.66c0 4.575 3.899 9.086 9.987 12.934.338.203.74.406 1.013.406.283 0 .686-.203 1.013-.406C19.1 16.746 23 12.234 23 7.66 23 3.736 20.245 1 16.672 1 14.603 1 12.98 1.94 12 3.352 11.042 1.952 9.408 1 7.328 1 3.766 1 1 3.736 1 7.66Z"
             stroke="currentColor"
-            stroke-width="1.75"
+            stroke-width="2"
           ></path>
         </svg>
 
