@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BsThreeDots } from "react-icons/bs";
 import { Avatar, Box, Flex, Image, Text } from '@chakra-ui/react'
+import Actions from '../components/Actions';
 
-const PostPage = () => {
+const PostPage = ({}) => {
+  const [liked, setLiked] = useState(false)
   return (
     <>
       <Flex w={'full'} gap={3} alignItems={'center'} justifyContent={'space-between'}>
@@ -22,6 +24,14 @@ const PostPage = () => {
       <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
         <Image src='/post1.png' width={'full'} />
       </Box>
+      <Flex>
+        <Actions liked={liked} setLiked={setLiked} />
+      </Flex>
+      <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
+        <Text>200 replies</Text>
+        <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
+        <Text>240 likes</Text>
+      </Flex>
     </>
   )
 }
