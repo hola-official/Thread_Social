@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BsThreeDots } from "react-icons/bs";
 import { Avatar, Box, Button, Divider, Flex, Image, Text } from '@chakra-ui/react'
 import { Portal } from "@chakra-ui/portal";
-import { Menu, MenuButton, MenuList, MenuItem, MenuDivider } from "@chakra-ui/menu";
+import { Menu, MenuButton, MenuList, MenuItem, MenuDivider, MenuGroup } from "@chakra-ui/menu";
 import Actions from '../components/Actions';
 
 const PostPage = ({ postImg }) => {
@@ -19,7 +19,26 @@ const PostPage = ({ postImg }) => {
 
         <Flex alignItems={'center'} gap={4}>
           <Text fontSize={{ base: "xs", md: "sm" }} textAlign={'right'} color={'gray.light'} >2day</Text>
-          <BsThreeDots cursor={'pointer'} />
+          <Menu>
+            <MenuButton>
+              <BsThreeDots cursor={'pointer'} />
+            </MenuButton>
+            <MenuList>
+              <MenuGroup>
+                <MenuItem color={'#fff'}>Mute</MenuItem>
+              </MenuGroup>
+              <MenuDivider />
+              <MenuGroup>
+                <MenuItem color={'red'}>Block</MenuItem>
+                <MenuItem color={'#fff'}>Hide</MenuItem>
+              </MenuGroup>
+              <MenuDivider />
+              <MenuGroup>
+                <MenuItem color={'red'}>Report</MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+
         </Flex>
       </Flex>
       <Text my={3}>Hello gbogbo aye!!!</Text>
@@ -40,9 +59,9 @@ const PostPage = ({ postImg }) => {
       <Divider my={4} />
 
       <Flex justifyContent={'space-between'}>
-        <Flex alignItems={'center'}>
-        <Text fontSize={'2xl'}>👋</Text>
-        <Text>Get the app to like, reply and post.</Text>
+        <Flex alignItems={'center'} gap={2}>
+          <Text fontSize={'2xl'}>👋</Text>
+          <Text color={'gray.light'}>Get the app to like, reply and post.</Text>
         </Flex>
         <Button>Get</Button>
       </Flex>
