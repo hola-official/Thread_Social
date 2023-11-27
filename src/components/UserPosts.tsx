@@ -58,8 +58,14 @@ const UserPosts = () => {
                     <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
                         <Image src="/post3.png" width={'full'} />
                     </Box>
+
                     <Flex>
                         <Actions liked={liked} setLiked={setLiked} />
+                    </Flex>
+                    <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
+                        <Text>12 replies</Text>
+                        <Box w={1} h={1} bg={"gray.light"}></Box>
+                        <Text>200 likes</Text>
                     </Flex>
                 </Flex>
             </Flex>
