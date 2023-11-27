@@ -30,7 +30,7 @@ const PostPage = ({ postImg }) => {
               <MenuDivider />
               <MenuGroup>
                 <MenuItem color={'red'}>Block</MenuItem>
-                <MenuItem color={'#fff'}>Hide</MenuItem>
+                <MenuItem color={'gray.light'}>Hide</MenuItem>
               </MenuGroup>
               <MenuDivider />
               <MenuGroup>
