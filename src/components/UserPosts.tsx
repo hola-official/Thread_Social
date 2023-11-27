@@ -42,7 +42,7 @@ const UserPosts = () => {
                 <Flex flex={1} flexDir={'column'} w={'full'}>
                     <Flex>
                         <Text>Aliu Musa</Text>
-                        <Image></Image>
+                        <Image src="/verified.png" ml={1} w={4} h={4}/>
                     </Flex>
                 </Flex>
             </Flex>
