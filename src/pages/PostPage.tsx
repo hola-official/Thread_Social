@@ -14,7 +14,7 @@ const PostPage = () => {
           </Flex>
 
           <Flex alignItems={'center'} gap={4}>
-            <Text fontSize={'sm'} textAlign={'right'} w={36}color={'gray.light'} >2day</Text>
+            <Text fontSize={{base: "xs", md: "sm"}} textAlign={'right'} w={36}color={'gray.light'} >2day</Text>
             <BsThreeDots cursor={'pointer'} />
           </Flex>
         </Flex>
