@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Actions = ({}) => {
-  return (
-    <div>Actions</div>
-  )
+const Actions = ({ likeed, setLiked }) => {
+    return (
+        <div>Actions</div>
+    )
 }
 
 export default Actions
