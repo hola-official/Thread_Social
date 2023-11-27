@@ -7,8 +7,8 @@ const UserPage = () => {
     <>
       <UserHeader />
       <UserPosts userAvartar={'https://bit.ly/tioluwani-kolawole'} username={'Kolisco'} postImg={'/post1.png'} postTitle={'Hello, Eku Ojo merin nile yii o'} />
-      <UserPosts />
-      <UserPosts />
+      <UserPosts userAvartar={'https://bit.ly/tioluwani-kolawole'} username={'Holayimika'} postImg={'/post2.png'} postTitle={'Hello, Eku Ojo merin nile yii o'} />
+      <UserPosts userAvartar={'https://bit.ly/tioluwani-kolawole'} username={'Holayimika'} postImg={'/post3.png'} postTitle={'Hello, Eku Ojo merin nile yii o'} />
     </>
   )
 }
