@@ -42,9 +42,9 @@ const PostPage = ({ postImg }) => {
         </Flex>
       </Flex>
       <Text my={3}>Hello gbogbo aye!!!</Text>
-      {postImg && (<Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
+      <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
         <Image src='/post1.png' width={'full'} />
-      </Box>)}
+      </Box>
 
       <Flex>
         <Actions liked={liked} setLiked={setLiked} />
