@@ -9,6 +9,11 @@ const UserPosts = () => {
                 <Flex flexDir={'column'}>
                     <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
                     <Box w={'1px'} h={"full"} bg={'gray.light'} my={2}></Box>
+                    <Box pos={'relative'} w={'full'}>
+                        <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
+                        <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
+                        <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
+                    </Box>
                 </Flex>
             </Flex>
         </Link>
