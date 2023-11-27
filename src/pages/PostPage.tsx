@@ -24,9 +24,11 @@ const PostPage = ({}) => {
       <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
         <Image src='/post1.png' width={'full'} />
       </Box>
+
       <Flex>
         <Actions liked={liked} setLiked={setLiked} />
       </Flex>
+      
       <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
         <Text>200 replies</Text>
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
