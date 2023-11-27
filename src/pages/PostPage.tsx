@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BsThreeDots } from "react-icons/bs";
-import { Avatar, Box, Divider, Flex, Image, Text } from '@chakra-ui/react'
+import { Avatar, Box, Button, Divider, Flex, Image, Text } from '@chakra-ui/react'
 import { Portal } from "@chakra-ui/portal";
 import { Menu, MenuButton, MenuList, MenuItem, MenuDivider } from "@chakra-ui/menu";
 import Actions from '../components/Actions';
@@ -39,7 +39,13 @@ const PostPage = ({ postImg }) => {
 
       <Divider my={4} />
 
-      <Flex justifyContent={'space-between'}></Flex>
+      <Flex justifyContent={'space-between'}>
+        <Flex alignItems={'center'}>
+        <Text fontSize={'2xl'}>👋</Text>
+        <Text>Get the app to like, reply and post.</Text>
+        </Flex>
+        <Button>Get</Button>
+      </Flex>
 
       <Divider my={4} />
     </>
