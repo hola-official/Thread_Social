@@ -13,7 +13,7 @@ const UserHeader = () => {
         const currentURL = window.location.href;
         navigator.clipboard.writeText(currentURL).then(() => {
             toast({
-                title: 'Success Copied.',
+                title: 'Success',
                 description: "Profile link copied.",
                 status: 'success',
                 duration: 3000,
@@ -63,6 +63,9 @@ const UserHeader = () => {
                     </Menu>
                 </Box>
             </Flex>
+        </Flex>
+        <Flex w={'full'}>
+
         </Flex>
     </VStack>
 }
