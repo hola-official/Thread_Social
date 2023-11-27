@@ -51,9 +51,9 @@ const UserPosts = () => {
                             <BsThreeDots />
                         </Flex>
                     </Flex>
-                </Flex>
                 <Text>Hello Thread!!!</Text>
                 <Flex></Flex>
+                </Flex>
             </Flex>
         </Link>
     );
