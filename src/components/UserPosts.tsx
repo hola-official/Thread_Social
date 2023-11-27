@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
 
-const UserPosts = ({ userAvartar, username, postTitle, postImg }) => {
+const UserPosts = ({ likes, replies, postTitle, postImg, postTime }) => {
 
     const [liked, setLiked] = useState(false)
     return (
         <Link to={"/:aliumusa/post/:1"}>
             <Flex gap={3} mb={4} py={5}>
                 <Flex alignItems={'center'} flexDir={"column"}>
-                    <Avatar src="/post1.png" size={"md"} name="Mark Zuckerberg" />
+                    <Avatar src="/directorPro.jpeg" size={"md"} name="Mark Zuckerberg" />
                     <Box w={"1px"} h={"full"} bg={"gray.light"} my={2} ></Box>
                     <Box pos={"relative"} w={"full"}>
                         <Avatar
@@ -50,22 +50,22 @@ const UserPosts = ({ userAvartar, username, postTitle, postImg }) => {
                             <Image src="/verified.png" ml={1} w={4} h={4} />
                         </Flex>
                         <Flex alignItems={'center'} gap={4}>
-                            <Text color={'gray.light'}>1d</Text>
+                            <Text color={'gray.light'}>{postTime}</Text>
                             <BsThreeDots />
                         </Flex>
                     </Flex>
-                    <Text>Hello Thread!!!</Text>
+                    <Text>{postTitle}</Text>
                     <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
-                        <Image src="/post3.png" width={'full'} />
+                        <Image src={postImg} width={'full'} />
                     </Box>
 
                     <Flex>
                         <Actions liked={liked} setLiked={setLiked} />
                     </Flex>
                     <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
-                        <Text>12 replies</Text>
+                        <Text>{replies} replies</Text>
                         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
-                        <Text>200 likes</Text>
+                        <Text>{likes} likes</Text>
                     </Flex>
                 </Flex>
             </Flex>

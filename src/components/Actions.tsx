@@ -25,7 +25,6 @@ const Actions = ({ liked, setLiked }) => {
 
         <svg
           aria-label="Reply"
-          class="x1lliihq x1n2onr6 x1yxark7"
           fill="currentColor"
           height="20"
           role="img"
@@ -44,7 +43,6 @@ const Actions = ({ liked, setLiked }) => {
 
         <svg
           aria-label="Repost"
-          class="x1lliihq x1n2onr6 x1yxark7"
           fill="currentColor"
           height="20"
           role="img"
@@ -57,7 +55,6 @@ const Actions = ({ liked, setLiked }) => {
 
         <svg
           aria-label="Share"
-          class="x1lliihq x1n2onr6 x1yxark7"
           fill="currentColor"
           height="20"
           role="img"

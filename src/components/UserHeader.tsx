@@ -42,7 +42,7 @@ const UserHeader = () => {
                     </Flex>
                 </Box>
                 <Box>
-                    <Avatar name="Aliu Musa" src="/directorPro.jpeg" size={"xl"} />
+                    <Avatar name="Aliu Musa" src="/directorPro.jpeg" size={{ base: "md", md: "xl"}} />
                 </Box>
             </Flex>
             <Text>Founder, executive chairman and CEO of DLT Africa</Text>

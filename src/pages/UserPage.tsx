@@ -6,9 +6,10 @@ const UserPage = () => {
   return (
     <>
       <UserHeader />
-      <UserPosts userAvartar={'https://bit.ly/tioluwani-kolawole'} username={'Kolisco'} postImg={'/post1.png'} postTitle={'Hello, Eku Ojo merin nile yii o'} />
-      <UserPosts userAvartar={'https://bit.ly/tioluwani-kolawole'} username={'Holayimika'} postImg={'/post2.png'} postTitle={'Hello, Eku Ojo merin nile yii o'} />
-      <UserPosts userAvartar={'https://bit.ly/tioluwani-kolawole'} username={'Holayimika'} postImg={'/post3.png'} postTitle={'Hello, Eku Ojo merin nile yii o'} />
+      <UserPosts likes={200} replies={50} postImg={'/post1.png'} postTitle={'What did you think about this guy'} postTime={'1d'} />
+      <UserPosts likes={50} replies={10} postImg={'/post2.png'} postTitle={'This is great!!'} postTime={'5d'} />
+      <UserPosts likes={10} replies={20} postImg={'/post3.png'} postTitle={'Wow! awesome'} postTime={'8d'} />
+      
     </>
   )
 }
