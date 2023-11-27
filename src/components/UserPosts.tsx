@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Avatar, Box, Image, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
+import Actions from "./Actions";
 
 const UserPosts = () => {
     return (
@@ -51,11 +52,13 @@ const UserPosts = () => {
                             <BsThreeDots />
                         </Flex>
                     </Flex>
-                <Text>Hello Thread!!!</Text>
-                <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
-                    <Image src="/post3.png" width={'full'}/>
-                </Box>
-                <Flex></Flex>
+                    <Text>Hello Thread!!!</Text>
+                    <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
+                        <Image src="/post3.png" width={'full'} />
+                    </Box>
+                    <Flex>
+                        <Actions />
+                    </Flex>
                 </Flex>
             </Flex>
         </Link>
