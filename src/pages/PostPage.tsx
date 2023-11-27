@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { BsThreeDots } from "react-icons/bs";
-import { Avatar, Box, Flex, Image, Text } from '@chakra-ui/react'
+import { Avatar, Box, Divider, Flex, Image, Text } from '@chakra-ui/react'
+import { Portal } from "@chakra-ui/portal";
+import { Menu, MenuButton, MenuList, MenuItem, MenuDivider } from "@chakra-ui/menu";
 import Actions from '../components/Actions';
 
-const PostPage = ({ }) => {
+const PostPage = ({ postImg }) => {
   const [liked, setLiked] = useState(false)
   return (
     <>
@@ -21,9 +23,9 @@ const PostPage = ({ }) => {
         </Flex>
       </Flex>
       <Text my={3}>Hello gbogbo aye!!!</Text>
-      <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
+      {postImg && (<Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
         <Image src='/post1.png' width={'full'} />
-      </Box>
+      </Box>)}
 
       <Flex>
         <Actions liked={liked} setLiked={setLiked} />
@@ -32,8 +34,14 @@ const PostPage = ({ }) => {
       <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
         <Text>200 replies</Text>
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
-        <Text>{ 21 + (liked ? 1 : 0) } likes</Text>
+        <Text>{21 + (liked ? 1 : 0)} likes</Text>
       </Flex>
+
+      <Divider my={4} />
+
+      <Flex justifyContent={'space-between'}></Flex>
+
+      <Divider my={4} />
     </>
   )
 }

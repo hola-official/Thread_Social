@@ -55,9 +55,9 @@ const UserPosts = ({ likes, replies, postTitle, postImg, postTime }) => {
                         </Flex>
                     </Flex>
                     <Text>{postTitle}</Text>
-                    <Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
+                    {postImg && (<Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
                         <Image src={postImg} width={'full'} />
-                    </Box>
+                    </Box>)}
 
                     <Flex>
                         <Actions liked={liked} setLiked={setLiked} />
@@ -65,7 +65,7 @@ const UserPosts = ({ likes, replies, postTitle, postImg, postTime }) => {
                     <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
                         <Text>{replies} replies</Text>
                         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
-                        <Text>{ 21 + (liked ? 1 : 0) } likes</Text>
+                        <Text>{21 + (liked ? 1 : 0)} likes</Text>
                     </Flex>
                 </Flex>
             </Flex>
