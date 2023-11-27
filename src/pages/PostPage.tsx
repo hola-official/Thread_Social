@@ -32,7 +32,7 @@ const PostPage = ({ }) => {
       <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
         <Text>200 replies</Text>
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
-        <Text>21 likes</Text>
+        <Text>{ 21 + (liked ? 1 : 0) } likes</Text>
       </Flex>
     </>
   )
