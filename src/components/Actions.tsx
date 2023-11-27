@@ -13,6 +13,7 @@ const Actions = ({ liked, setLiked }) => {
           role="img"
           viewBox="0 0 24 22"
           width="20"
+          onClick={() => setLiked(!liked)}
         >
           <title>Like</title>
           <path
