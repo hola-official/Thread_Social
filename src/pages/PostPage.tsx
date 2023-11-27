@@ -5,9 +5,9 @@ import { Avatar, Flex, Image, Text } from '@chakra-ui/react'
 const PostPage = () => {
   return (
     <>
-      <Flex>
         <Flex w={'full'} gap={3} alignItems={'center'} justifyContent={'center'}>
           <Avatar src='/aliumusa.jpeg' name='Aliu Musa' size={'md'} />
+          
           <Flex alignItems={'center'}>
             <Text fontSize={'sm'}>Aliu Musa</Text>
             <Image src='/verified.png' h={4} w={4} ml={2} />
@@ -18,7 +18,6 @@ const PostPage = () => {
             <BsThreeDots cursor={'pointer'} />
           </Flex>
         </Flex>
-      </Flex>
     </>
   )
 }
