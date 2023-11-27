@@ -7,8 +7,8 @@ const Actions = ({ liked, setLiked }) => {
       <Flex cursor={"pointer"} gap={3} my={2} onClick={(e) => e.preventDefault()}>
         <svg
           aria-label="Like"
-          class="x1lliihq x1n2onr6 x1yxark7"
-          fill="transparent"
+          fill={liked ? 'rgb(237,73,86' :"transparent"}
+          color={liked ? 'rgb(237,73,86' : ''}
           height="19"
           role="img"
           viewBox="0 0 24 22"
