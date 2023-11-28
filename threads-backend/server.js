@@ -12,5 +12,5 @@ app.use(express.urlencoded({ extended: true })); // parse form data inside the r
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-  res.send("Welcome Home🏡");
+    res.send("Welcome Home🏡");
 });
