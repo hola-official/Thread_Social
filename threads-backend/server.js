@@ -8,4 +8,4 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json({limit : "50mb"})) // parse  json data inside the req body
 app.use(express.urlencoded({extended: true})) // parse form data inside the req body
-app.use(cookieParser)
+app.use(cookieParser())
