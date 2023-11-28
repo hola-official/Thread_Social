@@ -27,19 +27,15 @@ const PostPage = ({ postImg }) => {
             <MenuList>
               <MenuGroup>
                 <MenuItem color={'gray.light'}>Mute</MenuItem>
-              </MenuGroup>
-              <MenuDivider />
-              <MenuGroup>
+                <MenuDivider />
                 <MenuItem color={'red'}>Block</MenuItem>
+                <MenuDivider />
                 <MenuItem color={'gray.light'}>Hide</MenuItem>
-              </MenuGroup>
-              <MenuDivider />
-              <MenuGroup>
+                <MenuDivider />
                 <MenuItem color={'red'}>Report</MenuItem>
               </MenuGroup>
             </MenuList>
           </Menu>
-
         </Flex>
       </Flex>
       <Text my={3}>Hello gbogbo aye!!!</Text>

@@ -26,14 +26,11 @@ const Comments = ({ comment, createdAt, likes, username, userAvatar }) => {
                                 <MenuList>
                                     <MenuGroup>
                                         <MenuItem color={'gray.light'}>Mute</MenuItem>
-                                    </MenuGroup>
-                                    <MenuDivider />
-                                    <MenuGroup>
+                                        <MenuDivider />
                                         <MenuItem color={'red'}>Block</MenuItem>
+                                        <MenuDivider />
                                         <MenuItem color={'gray.light'}>Hide</MenuItem>
-                                    </MenuGroup>
-                                    <MenuDivider />
-                                    <MenuGroup>
+                                        <MenuDivider />
                                         <MenuItem color={'red'}>Report</MenuItem>
                                     </MenuGroup>
                                 </MenuList>

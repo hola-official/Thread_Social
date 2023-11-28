@@ -53,19 +53,16 @@ const UserPosts = ({ likes, replies, postTitle, postImg, postTime }) => {
                             <Text color={'gray.light'}>{postTime}</Text>
                             <Menu>
                                 <MenuButton>
-                                    <BsThreeDots cursor={'pointer'}  />
+                                    <BsThreeDots cursor={'pointer'} />
                                 </MenuButton>
                                 <MenuList>
                                     <MenuGroup>
                                         <MenuItem color={'gray.light'}>Mute</MenuItem>
-                                    </MenuGroup>
-                                    <MenuDivider />
-                                    <MenuGroup>
+                                        <MenuDivider />
                                         <MenuItem color={'red'}>Block</MenuItem>
+                                        <MenuDivider />
                                         <MenuItem color={'gray.light'}>Hide</MenuItem>
-                                    </MenuGroup>
-                                    <MenuDivider />
-                                    <MenuGroup>
+                                        <MenuDivider />
                                         <MenuItem color={'red'}>Report</MenuItem>
                                     </MenuGroup>
                                 </MenuList>
