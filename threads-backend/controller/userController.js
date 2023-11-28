@@ -20,6 +20,17 @@ const signUpUser = async (req, res) => {
         })
 
         await newUser.save()
+
+        if (newUser) {
+            res.status(201).json({
+                _id: newUser._id,
+                name: newUser.name,
+                email: newUser.email,
+                username: newUser.username
+            })
+        } else {
+            res.status(400).json({ message: 'Invalid user data' })
+        }
     } catch (err) {
         res.status(500).json({ message: err.message })
         console.log('Error in SignupUser: ', err.message);
