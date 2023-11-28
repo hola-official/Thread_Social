@@ -6,3 +6,5 @@ const protectRoute = async (req, res, next) => {
         console.log(`Error while signing up user: `, err.message);
     }
 }
+
+export default protectRoute
