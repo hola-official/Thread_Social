@@ -15,8 +15,16 @@ const postSchema = mongoose.Schema(
         },
         likes: {
             type: [mongoose.Schema.Types.ObjectId],
-            
-        }
+            ref: "User",
+            required: true
+        },
+        replies: [
+            {
+                userId: {
+                    
+                }
+            }
+        ]
     }
 )
 
