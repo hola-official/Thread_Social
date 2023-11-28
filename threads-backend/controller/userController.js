@@ -21,7 +21,7 @@ const signUpUser = async (req, res) => {
 
         await newUser.save()
     } catch (err) {
-
+        res.status(500).json({message: err.message})
     }
 }
 
