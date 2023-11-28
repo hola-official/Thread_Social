@@ -1,7 +1,8 @@
-import express from "express";
-import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import mongoose from "mongoose";
+const express = require("express");
+const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const mongoose = require("mongoose");
+const userRoutes = require('./routes/userRoute');
 
 dotenv.config();
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json({ limit: "50mb" })); // parse  json data inside the req bod
 app.use(express.urlencoded({ extended: true })); // parse form data inside the req body
 app.use(cookieParser());
 
+app.use('/api/users', userRoutes)
 app.get("/", (req, res) => {
     res.send("Welcome Home🏡");
 });
