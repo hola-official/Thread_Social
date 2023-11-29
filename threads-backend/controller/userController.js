@@ -41,7 +41,11 @@ const signUpUser = async (req, res) => {
 }
 
 const loginUser = async (req, res) => {
-
+    try {
+        const {username, password} = req.body
+    } catch (err) {
+        
+    }
 }
 
 module.exports = { signUpUser, loginUser }
