@@ -79,5 +79,12 @@ const logoutUser = (req, res) => {
         console.log("Error in LogoutUser", err.message);
     }
 }
+const followUnfollowUser = async (req, res) => {
+    try {
+        const { id } = req.params
+    } catch (err) {
 
-module.exports = { signUpUser, loginUser, logoutUser }
+    }
+}
+
+module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser }

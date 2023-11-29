@@ -1,5 +1,6 @@
 const express = require("express");
-const { signUpUser, loginUser, logoutUser, followUnfollowUser } = require("../controller/userController");
+const { followUnfollowUser, signUpUser, loginUser, logoutUser } = require("../controller/userController");
+const protectRoute = require('../middleware/protectRoute')
 
 const router = express.Router();
 router.post('/signup', signUpUser)
