@@ -19,7 +19,7 @@ const getUserProfile = async (req, res) => {
             user = await User.findOne({ username: query }).select('-password').select('-updatedAt');
         }
 
-        
+        if(!user)
     } catch (err) {
         res.status(500).json({})
     }
