@@ -19,9 +19,14 @@ const getUserProfile = async (req, res) => {
             user = await User.findOne({ username: query }).select('-password').select('-updatedAt');
         }
 
-        if(!user)
+        if (!user) {
+            // if user not found
+            res.status(400).json({ msg: "User not found" })
+        }
+        res.status(200).json({ message: 'user found successfully' })
     } catch (err) {
-        res.status(500).json({})
+        res.status(500).json({message: err.message})
+        console.log('Error in getUserProfile', err.message);
     }
 }
 
