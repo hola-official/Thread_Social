@@ -16,7 +16,7 @@ const getUserProfile = async (req, res) => {
             user = await User.findOne({ _id: query }).select("-updatedAt");
         } else {
             // query is username
-            
+            user = await User.findOne()
         }
     } catch (err) {
         res.status(500).json({})
