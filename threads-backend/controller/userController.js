@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookie')
 
 const getUserProfile = async (req, res) => {
+    // we fetch the user profile either by username or userId
     try {
 
     } catch (err) {
