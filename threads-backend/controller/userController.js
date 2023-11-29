@@ -2,6 +2,14 @@ const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookie')
 
+const getUserProfile = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        res.status(500).json({})
+    }
+}
+
 const signUpUser = async (req, res) => {
     try {
         const { name, email, username, password } = req.body
@@ -109,12 +117,4 @@ const followUnfollowUser = async (req, res) => {
     }
 };
 
-const getUserProfile = async (req, res) => {
-    try {
-        
-    } catch (err) {
-        res.status(500).json({})
-    }
-}
-
-module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser, getUserProfile }
+module.exports = { getUserProfile, signUpUser, loginUser, logoutUser, followUnfollowUser }
