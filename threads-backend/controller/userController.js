@@ -52,7 +52,20 @@ const loginUser = async (req, res) => {
             user.isFrozen = false
             await user.save()
         }
+
+        generateTokenAndSetCookie(user._id, res)
+
+        res.status(200).json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            username: user.username,
+            bio: user.bio,
+            profilePic: user.profilePic
+        })
     } catch (err) {
+        res.status(500).json({error: err.message})
+        console.log("Error in LoginUser", err.message);
 
     }
 }
