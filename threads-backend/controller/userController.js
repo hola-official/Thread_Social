@@ -72,9 +72,10 @@ const loginUser = async (req, res) => {
 
 const logoutUser = (req, res) => {
     try {
-        
+        res.cookie("jwt", '', { maxAge: 1 })
     } catch (err) {
-        
+        res.status(500).json({ error: err.message })
+        console.log("Error in LogoutUser", err.message);
     }
 }
 
