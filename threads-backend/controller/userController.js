@@ -104,9 +104,17 @@ const followUnfollowUser = async (req, res) => {
             res.status(200).json({ message: "User followed Successfully" })
         }
     } catch (err) {
-        res.status(500).json({error: err.message})
+        res.status(500).json({ error: err.message })
         console.log('Error in Follow/Unfollow', err.message);
+    }
+};
+
+const getUserProfile = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        res.status(500).json({})
     }
 }
 
-module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser }
+module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser, getUserProfile }
