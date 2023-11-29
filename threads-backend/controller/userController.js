@@ -90,18 +90,18 @@ const followUnfollowUser = async (req, res) => {
         if (!userToModify || !currentUser)
             return res.status(400).json({ error: "User not Found" })
 
-            const isFollowing = currentUser.following.includes(id)
-            if(!isFollowing) {
-                // Unfollow  user
-                await User.findByIdAndUpdate(id, {$pull: {followers: req.user._id}})
-                await User.findByIdAndUpdate(req.user._id, {$pull: {following: id}})
-                res.status(200).json({message: "User Unfollowed Successfully"})
-            } else {
-                // Follow user
-                await User.findByIdAndUpdate(id, {$push: {followers: req.user._id}})
-                await User.findByIdAndUpdate(req.user._id, {$push: {following: id}})
-                res.status(200).json({message: "User followed Successfully"})
-            }
+        const isFollowing = currentUser.following.includes(id)
+        if (!isFollowing) {
+            // Unfollow  user
+            await User.findByIdAndUpdate(id, { $pull: { followers: req.user._id } })
+            await User.findByIdAndUpdate(req.user._id, { $pull: { following: id } })
+            res.status(200).json({ message: "User Unfollowed Successfully" })
+        } else {
+            // Follow user
+            await User.findByIdAndUpdate(id, { $push: { followers: req.user._id } })
+            await User.findByIdAndUpdate(req.user._id, { $push: { following: id } })
+            res.status(200).json({ message: "User followed Successfully" })
+        }
     } catch (err) {
 
     }
