@@ -3,9 +3,9 @@ const { followUnfollowUser, signUpUser, loginUser, logoutUser, getUserProfile } 
 const protectRoute = require('../middleware/protectRoute')
 
 const router = express.Router();
+router.get('/getuserprofile', protectRoute, getUserProfile)
 router.post('/signup', signUpUser)
 router.post('/login', loginUser)
 router.post('/logout', logoutUser)
 router.post('/follow/:id', protectRoute, followUnfollowUser) // toggle state (follow/unfollow)
-router.get('/getuserprofile', protectRoute, getUserProfile) 
 module.exports = router
