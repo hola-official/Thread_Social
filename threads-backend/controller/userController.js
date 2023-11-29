@@ -78,7 +78,8 @@ const logoutUser = (req, res) => {
         res.status(500).json({ error: err.message })
         console.log("Error in LogoutUser", err.message);
     }
-}
+};
+
 const followUnfollowUser = async (req, res) => {
     try {
         const { id } = req.params
@@ -91,7 +92,7 @@ const followUnfollowUser = async (req, res) => {
             return res.status(400).json({ error: "User not Found" })
 
         const isFollowing = currentUser.following.includes(id)
-        if (!isFollowing) {
+        if (isFollowing) {
             // Unfollow  user
             await User.findByIdAndUpdate(id, { $pull: { followers: req.user._id } })
             await User.findByIdAndUpdate(req.user._id, { $pull: { following: id } })
@@ -103,7 +104,8 @@ const followUnfollowUser = async (req, res) => {
             res.status(200).json({ message: "User followed Successfully" })
         }
     } catch (err) {
-
+        res.status(500).json({error: err.message})
+        console.log('Error in Follow/Unfollow', err.message);
     }
 }
 
