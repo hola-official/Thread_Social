@@ -14,6 +14,9 @@ const getUserProfile = async (req, res) => {
         // query is userId
         if (mongoose.Types.ObjectId.isValid(query)) {
             user = await User.findOne({ _id: query }).select("-updatedAt");
+        } else {
+            // query is username
+            
         }
     } catch (err) {
         res.status(500).json({})
