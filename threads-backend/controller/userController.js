@@ -2,7 +2,7 @@ const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookie')
 
-const getUserProfile = async (req, res, next) => {
+const getUserProfile = async (req, res) => {
     try {
 
     } catch (err) {
