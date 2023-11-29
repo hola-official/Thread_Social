@@ -16,7 +16,7 @@ const getUserProfile = async (req, res) => {
             user = await User.findOne({ _id: query }).select("-updatedAt");
         } else {
             // query is username
-            user = await User.findOne()
+            user = await User.findOne({username: query}).select('-password').select('-updatedAt');
         }
     } catch (err) {
         res.status(500).json({})
