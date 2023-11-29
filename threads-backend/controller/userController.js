@@ -48,7 +48,7 @@ const loginUser = async (req, res) => {
 
         if (!user || !isPasswordCorrect) return res.status(400).json({ error: "Invalid username or password" })
 
-        if(user.isFrozen) {
+        if (user.isFrozen) {
             user.isFrozen = false
             await user.save()
         }
@@ -64,7 +64,7 @@ const loginUser = async (req, res) => {
             profilePic: user.profilePic
         })
     } catch (err) {
-        res.status(500).json({error: err.message})
+        res.status(500).json({ error: err.message })
         console.log("Error in LoginUser", err.message);
 
     }
