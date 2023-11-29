@@ -42,9 +42,10 @@ const signUpUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        const {username, password} = req.body
+        const { username, password } = req.body
+        const user = await user.findOne({ username })
     } catch (err) {
-        
+
     }
 }
 
