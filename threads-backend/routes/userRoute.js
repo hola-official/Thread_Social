@@ -1,10 +1,10 @@
 const express = require("express");
 const {
-  getUserProfile,
-  followUnfollowUser,
-  signUpUser,
-  loginUser,
-  logoutUser,
+    getUserProfile,
+    followUnfollowUser,
+    signUpUser,
+    loginUser,
+    logoutUser,
 } = require("../controller/userController");
 const protectRoute = require("../middleware/protectRoute");
 
