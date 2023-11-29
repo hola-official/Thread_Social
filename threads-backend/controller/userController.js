@@ -70,8 +70,12 @@ const loginUser = async (req, res) => {
     }
 }
 
-const logoutUser = async (req, res) => {
-    
+const logoutUser = (req, res) => {
+    try {
+        
+    } catch (err) {
+        
+    }
 }
 
-module.exports = { signUpUser, loginUser }
+module.exports = { signUpUser, loginUser, logoutUser }
