@@ -2,7 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoute");
+const userRoutes = require("./routes/userRoutes");
+const postRoutes = require('./routes/postRoutes')
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true })); // parse form data inside the r
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 app.get("/", (req, res) => {
     res.send("Welcome Home🏡");
 });
