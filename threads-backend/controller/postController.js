@@ -88,7 +88,7 @@ const likeUnlikePost = async (req, res) => {
         } else {
             post.likes.push(userId);
             await post.save();
-            
+
             res.status(200).json({ message: "Post liked successfully" });
         }
     } catch (err) {
@@ -97,9 +97,19 @@ const likeUnlikePost = async (req, res) => {
     }
 };
 
+const replyToPost = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        res.status(500).json({message: err.message})
+        console.log("Error in Reply To Post: ", err.message);
+    }
+}
+
 module.exports = {
     getPost,
     createPost,
     deletePost,
     likeUnlikePost,
+    replyToPost,
 };
