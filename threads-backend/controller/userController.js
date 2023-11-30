@@ -162,6 +162,7 @@ const updateUser = async (req, res, next) => {
         user.bio = bio || user.bio
 
         await user.save()
+        res.sendStatus(200).json({message: "Profile update successfully", user})
     } catch (err) {
         res.status(500).json({ error: err.message })
         console.log('Error in Update User', err.message);
