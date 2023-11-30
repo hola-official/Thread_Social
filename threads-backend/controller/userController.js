@@ -149,6 +149,7 @@ const updateUser = async (req, res, next) => {
     const userId = req.user._id
     try {
         let user = await User.findById(userId)
+        if(!user) return res.status(400).json({message: "User not found"})
     } catch (err) {
         res.status(500).json({ error: err.message })
         console.log('Error in Update User', err.message);
