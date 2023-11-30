@@ -113,6 +113,10 @@ const replyToPost = async (req, res) => {
         if (!post) {
             return res.status(404).json({ message: "Post not found" })
         }
+
+        const reply = {userId, text, userProfilePic, username}
+
+        post.replies.push(reply)
     } catch (err) {
         res.status(500).json({ message: err.message })
         console.log("Error in Reply To Post: ", err.message);
