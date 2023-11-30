@@ -1,6 +1,10 @@
 const User = require("../models/userModel");
 const Post = require("../models/postModel");
 
+const getPost = async (req, res) => {
+
+}
+
 const createPost = async (req, res) => {
     try {
         const { postedBy, text, img } = req.body;
@@ -34,5 +38,6 @@ const createPost = async (req, res) => {
 };
 
 module.exports = {
+    getPost,
     createPost,
 };
