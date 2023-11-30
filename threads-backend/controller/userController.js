@@ -99,7 +99,7 @@ const loginUser = async (req, res) => {
         });
     } catch (err) {
         res.status(500).json({ error: err.message });
-        console.log("Error in LoginUser", err.message);
+        console.log("Error in LoginUser: ", err.message);
     }
 };
 
@@ -140,7 +140,7 @@ const followUnfollowUser = async (req, res) => {
         }
     } catch (err) {
         res.status(500).json({ error: err.message });
-        console.log("Error in Follow/Unfollow", err.message);
+        console.log("Error in Follow/Unfollow:", err.message);
     }
 };
 
@@ -170,7 +170,7 @@ const updateUser = async (req, res) => {
         res.status(200).json({ message: "Profile update successfully", user });
     } catch (err) {
         res.status(500).json({ error: err.message });
-        console.log("Error in Update User", err.message);
+        console.log("Error in Update User: ", err.message);
     }
 };
 
