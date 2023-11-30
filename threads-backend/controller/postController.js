@@ -23,6 +23,7 @@ const createPost = async (req, res) => {
         }
 
         const newPost = new Post({ postedBy, text, img });
+        
         await newPost.save()
     } catch (err) {
         res.status(500).json({ error: err.message });
