@@ -148,7 +148,7 @@ const updateUser = async (req, res, next) => {
     const { name, email, username, password, profilePic, bio } = req.body
     const userId = req.user._id
     try {
-
+        let user = await User.findById(userId)
     } catch (err) {
         res.status(500).json({ error: err.message })
         console.log('Error in Update User', err.message);
