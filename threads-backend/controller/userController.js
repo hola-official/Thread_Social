@@ -155,6 +155,13 @@ const updateUser = async (req, res, next) => {
             const hashedPassword = await bcrypt.hash(password, salt)
             user.password = hashedPassword
         }
+        user.name = name || user.name
+        user.email = email || user.email
+        user.username = username || user.username
+        user.profilePic = profilePic || user.profilePic
+        user.bio = bio || user.bio
+
+        await user.save()
     } catch (err) {
         res.status(500).json({ error: err.message })
         console.log('Error in Update User', err.message);
