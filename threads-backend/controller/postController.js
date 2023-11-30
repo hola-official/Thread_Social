@@ -65,8 +65,18 @@ const deletePost = async (req, res) => {
     }
 }
 
+const likeUnlikePost = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        res.status(500).json({message: err.message})
+        console.log("Error in Like and Unlike Post: ", err.message);
+    }
+}
+
 module.exports = {
     getPost,
     createPost,
     deletePost,
+    likeUnlikePost,
 };
