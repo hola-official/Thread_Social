@@ -119,7 +119,7 @@ const replyToPost = async (req, res) => {
         post.replies.push(reply)
         await post.save()
 
-        res.status(200).json({message: "Reply added successfully", post})
+        res.status(200).json({ message: "Reply added successfully", post })
     } catch (err) {
         res.status(500).json({ message: err.message })
         console.log("Error in Reply To Post: ", err.message);
@@ -131,17 +131,17 @@ const getFeedPost = async (req, res) => {
         const userId = req.user._id
         const user = await User.findById(userId)
 
-        if(!user) {
-            return res.status(404).json({message: "User not found"})
+        if (!user) {
+            return res.status(404).json({ message: "User not found" })
         }
 
         const following = user.following
 
-        const feedPosts = await Post.find({postedBy: {$in: following}}).sort({createdAt: -1});
+        const feedPosts = await Post.find({ postedBy: { $in: following } }).sort({ createdAt: -1 });
 
-        res.status(200).json({feedPosts})
+        res.status(200).json({ feedPosts })
     } catch (err) {
-        res.status(500).json({message: err.message}) // Internal server error
+        res.status(500).json({ message: err.message }) // Internal server error
         console.log("Error in Get Feed Post: ", err.message);
     }
 }
