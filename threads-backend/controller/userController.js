@@ -144,13 +144,15 @@ const followUnfollowUser = async (req, res) => {
     }
 };
 
-const updateUser = async (req, res, next) => {
+const updateUser = async (req, res) => {
     const { name, email, username, password, profilePic, bio } = req.body
     const userId = req.user._id
     try {
         let user = await User.findById(userId)
-        if(!user) return res.status(400).json({message: "User not found"})
-        if(password) {
+        if (!user) return res.status(400).json({ message: "User not found" })
+
+        if(req.params)
+        if (password) {
             const salt = await bcrypt.getSalt(10)
             const hashedPassword = await bcrypt.hash(password, salt)
             user.password = hashedPassword
@@ -162,7 +164,7 @@ const updateUser = async (req, res, next) => {
         user.bio = bio || user.bio
 
         await user.save()
-        res.sendStatus(200).json({message: "Profile update successfully", user})
+        res.status(200).json({ message: "Profile update successfully", user })
     } catch (err) {
         res.status(500).json({ error: err.message })
         console.log('Error in Update User', err.message);
