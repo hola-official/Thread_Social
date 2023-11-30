@@ -144,10 +144,15 @@ const followUnfollowUser = async (req, res) => {
     }
 };
 
+const updateUser = async (req, res, next) => {
+
+}
+
 module.exports = {
     getUserProfile,
     signUpUser,
     loginUser,
     logoutUser,
     followUnfollowUser,
+    updateUser,
 };

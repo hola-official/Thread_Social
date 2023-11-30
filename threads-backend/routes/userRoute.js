@@ -15,6 +15,6 @@ router.post("/signup", signUpUser);
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
 router.post("/follow/:id", protectRoute, followUnfollowUser); // toggle state (follow/unfollow)
-router.put("/update", protectRoute, updateUser); // toggle state (follow/unfollow)
+router.put("/update/:id", protectRoute, updateUser); // update user
 
 module.exports = router;
