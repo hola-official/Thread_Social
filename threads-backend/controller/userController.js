@@ -145,7 +145,12 @@ const followUnfollowUser = async (req, res) => {
 };
 
 const updateUser = async (req, res, next) => {
+    try {
 
+    } catch (err) {
+        res.status(500).json({ error: err.message })
+        console.log('Error in Update User', err.message);
+    }
 }
 
 module.exports = {
