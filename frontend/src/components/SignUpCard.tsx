@@ -136,6 +136,7 @@ export default function SignUpCard() {
                 _hover={{
                   bg: useColorModeValue("gray.700", "gray.800"),
                 }}
+                onClick={() => handleSignup()}
               >
                 Sign up
               </Button>
