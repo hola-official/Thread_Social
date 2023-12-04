@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div>
       <Link to={'/markzuckerberg'}>
-        <Flex w={'full'} justifyContent={'center'} >
+        <Flex w={'full'} justifyContent={'center'}  >
           <Button mx={'auto'}>Visit Profile Page</Button>
         </Flex>
       </Link>
