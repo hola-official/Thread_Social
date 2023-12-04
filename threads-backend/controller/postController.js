@@ -153,7 +153,7 @@ const getUserPosts = async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(400).json({ message: "User not found" });
+            return res.status(404).json({ message: "User not found" });
         }
         const posts = await Post.find({ postedBy: user._id }).sort({
             createdAt: -1,
