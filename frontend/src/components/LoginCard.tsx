@@ -86,7 +86,11 @@ export default function LoginCard() {
             <FormControl isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? "text" : "password"} />
+                <Input type={showPassword ? "text" : "password"} 
+                onChange={(e) =>
+                  setInputs({ ...inputs, password: e.target.value })
+                }
+                value={inputs.password}/>
                 <InputRightElement h={"full"}>
                   <Button
                     variant={"ghost"}
