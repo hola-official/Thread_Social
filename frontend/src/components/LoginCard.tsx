@@ -40,7 +40,7 @@ export default function LoginCard() {
             base: "full",
             sm: "400px"
           }}
-          >
+        >
           <Stack spacing={4}>
             <FormControl isRequired>
               <FormLabel>Username/Email</FormLabel>
@@ -73,7 +73,7 @@ export default function LoginCard() {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Don&apos;t have an account? <Link color={'blue.400'}>Sign Up</Link>
+                Don&apos;t have an account? {" "} <Link color={'blue.400'}>Sign Up</Link>
               </Text>
             </Stack>
           </Stack>
