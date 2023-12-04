@@ -23,6 +23,8 @@ export default function SignUpCard() {
   const [showPassword, setShowPassword] = useState(false)
   const setAuthScreen = useSetRecoilState(authScreenAtom)
 
+  
+
   return (
     <Flex
       minH={'100vh'}
