@@ -26,7 +26,7 @@ export default function LoginCard() {
   const setAuthScreen = useSetRecoilState(authScreenAtom);
 
   const [inputs, setInputs] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const showToast = useShowToast();
@@ -42,6 +42,8 @@ export default function LoginCard() {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
+      console.log("Login Successfull", data);
+      
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
@@ -74,13 +76,13 @@ export default function LoginCard() {
         >
           <Stack spacing={4}>
             <FormControl isRequired>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>Username</FormLabel>
               <Input
                 type="text"
                 onChange={(e) =>
-                  setInputs({ ...inputs, email: e.target.value })
+                  setInputs({ ...inputs, username: e.target.value })
                 }
-                value={inputs.email}
+                value={inputs.username}
               />
             </FormControl>
             <FormControl isRequired>
