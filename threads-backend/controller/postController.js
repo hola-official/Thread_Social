@@ -99,50 +99,64 @@ const likeUnlikePost = async (req, res) => {
 
 const replyToPost = async (req, res) => {
     try {
-        const { text } = req.body
-        const postId = req.params.id
-        const userId = req.user._id
-        const userProfilePic = req.user.profilePic
-        const username = req.user.username
+        const { text } = req.body;
+        const postId = req.params.id;
+        const userId = req.user._id;
+        const userProfilePic = req.user.profilePic;
+        const username = req.user.username;
 
         if (!text) {
-            return res.status(400).json({ message: "Text field is required" })
+            return res.status(400).json({ message: "Text field is required" });
         }
 
-        const post = await Post.findById(postId)
+        const post = await Post.findById(postId);
         if (!post) {
-            return res.status(404).json({ message: "Post not found" })
+            return res.status(404).json({ message: "Post not found" });
         }
 
-        const reply = { userId, text, userProfilePic, username }
+        const reply = { userId, text, userProfilePic, username };
 
-        post.replies.push(reply)
-        await post.save()
+        post.replies.push(reply);
+        await post.save();
 
-        res.status(200).json({ message: "Reply added successfully", post })
+        res.status(200).json({ message: "Reply added successfully", post });
     } catch (err) {
-        res.status(500).json({ message: err.message })
+        res.status(500).json({ message: err.message });
         console.log("Error in Reply To Post: ", err.message);
     }
-}
+};
 
 const getFeedPost = async (req, res) => {
     try {
-        const userId = req.user._id
-        const user = await User.findById(userId)
+        const userId = req.user._id;
+        const user = await User.findById(userId);
 
         if (!user) {
-            return res.status(404).json({ message: "User not found" })
+            return res.status(404).json({ message: "User not found" });
         }
 
-        const following = user.following
+        const following = user.following;
 
-        const feedPosts = await Post.find({ postedBy: { $in: following } }).sort({ createdAt: -1 });
+        const feedPosts = await Post.find({ postedBy: { $in: following } }).sort({
+            createdAt: -1,
+        });
 
-        res.status(200).json({ feedPosts })
+        res.status(200).json({ feedPosts });
     } catch (err) {
-        res.status(500).json({ message: err.message }) // Internal server error
+        res.status(500).json({ message: err.message }); // Internal server error
         console.log("Error in Get Feed Post: ", err.message);
+    }
+};
+
+const getUserPost = async (req, res) => {
+    const { username } = req.params
+    try {
+        const user = await User.findOne({ username });
+        if(!user) {
+            
+        }
+    } catch (err) {
+
     }
 }
 
