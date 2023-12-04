@@ -49,7 +49,7 @@ export default function SignUpCard() {
       }
 
       localStorage.setItem("user-threads", JSON.stringify(data));
-      setUser(data)
+      setUser(data);
     } catch (error) {
       showToast("Error", error, "error");
     }
@@ -71,9 +71,15 @@ export default function SignUpCard() {
           <Stack spacing={4}>
             <HStack>
               <Box>
-                <FormControl id="firstName" isRequired>
-                  <FormLabel>First Name</FormLabel>
-                  <Input type="text" />
+                <FormControl isRequired>
+                  <FormLabel>Full Name</FormLabel>
+                  <Input
+                    type="text"
+                    onChange={(e) =>
+                      setInputs({ ...inputs, name: e.target.value })
+                    }
+                    value={inputs.name}
+                  />
                 </FormControl>
               </Box>
               <Box>
