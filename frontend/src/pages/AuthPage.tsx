@@ -1,9 +1,9 @@
 import React from 'react'
 import LoginCard from '../components/LoginCard'
-import SignupCard from '../components/SignUpCard'
+import SignUpCard from '../components/SignUpCard'
 
 const AuthPage = () => {
-  return <>"login" ? <LoginCard /> : <SignupCard /></>
+  return <>"login" ? <LoginCard /> : <SignUpCard /></>
 }
 
 export default AuthPage

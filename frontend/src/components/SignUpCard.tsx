@@ -17,7 +17,7 @@ import {
 import React, { useState } from 'react'
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
 
-export default function SignupCard() {
+export default function SignUpCard() {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
