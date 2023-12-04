@@ -22,9 +22,11 @@ import authScreenAtom from '../atoms/authAtoms'
 export default function SignUpCard() {
   const [showPassword, setShowPassword] = useState(false)
   const setAuthScreen = useSetRecoilState(authScreenAtom)
-
   const const [inputs, setInputs] = useState({
-    
+    name: "",
+    username: '',
+    email: '',
+    password: '',
   })
 
   return (
