@@ -54,12 +54,12 @@ const UserHeader = () => {
                 </Flex>
                 <Flex gap={2}>
                     <Box className="icon-container">
-                        <BsInstagram cursor={"pointer"} size={20} />
+                        <BsInstagram cursor={"pointer"} size={24} />
                     </Box>
                     <Box className="icon-container">
                         <Menu>
                             <MenuButton>
-                                <CgMoreO cursor={"pointer"} size={20} />
+                                <CgMoreO cursor={"pointer"} size={24} />
                             </MenuButton>
                             <Portal>
                                 <MenuList bg={"gray.dark"}>

@@ -3,19 +3,19 @@ import { Routes, Route } from 'react-router-dom'
 import UserPage from './pages/UserPage'
 import PostPage from './pages/PostPage'
 import Header from './components/Header'
+import HomePage from './pages/HomePage'
 
 function App() {
 
   return (
-    <section>
-      <Container maxW='620'>
-        <Header />
-        <Routes>
-          <Route path='/:username' element={<UserPage />} />
-          <Route path='/:username/post/:id' element={<PostPage />} />
-        </Routes>
-      </Container>
-    </section>
+    <Container maxW='620'>
+      <Header />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/:username' element={<UserPage />} />
+        <Route path='/:username/post/:id' element={<PostPage />} />
+      </Routes>
+    </Container>
   )
 }
 
