@@ -30,23 +30,23 @@ export default function SignUpCard() {
     email: "",
     password: "",
   });
-  const showToast = useShowToast()
-  const setUser = useSetRecoilState(userAtom)
+  const showToast = useShowToast();
+  const setUser = useSetRecoilState(userAtom);
 
   const handleSignup = async () => {
     try {
-      const res = await fetch('/api/users/signup', {
+      const res = await fetch("/api/users/signup", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(inputs),
-      })
-      const data = await res.json()
+      });
+      const data = await res.json();
     } catch (error) {
-      showToast("Error", error, "error")
+      showToast("Error", error, "error");
     }
-  }
+  };
   return (
     <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
