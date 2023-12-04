@@ -35,13 +35,18 @@ export default function LoginCard() {
           rounded={'lg'}
           bg={useColorModeValue('white', 'gray.dark')}
           boxShadow={'lg'}
-          p={8}>
+          p={8}
+          w={{
+            base: "full",
+            sm: "400px"
+          }}
+          >
           <Stack spacing={4}>
             <FormControl isRequired>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Username/Email</FormLabel>
               <Input type="text" />
             </FormControl>
-            <FormControl id="password" isRequired>
+            <FormControl isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
                 <Input type={showPassword ? 'text' : 'password'} />
@@ -68,7 +73,7 @@ export default function LoginCard() {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'blue.400'}>Login</Link>
+                Don&apos;t have an account? <Link color={'blue.400'}>Sign Up</Link>
               </Text>
             </Stack>
           </Stack>
