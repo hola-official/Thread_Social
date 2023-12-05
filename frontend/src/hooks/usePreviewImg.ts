@@ -14,8 +14,12 @@ const usePreviewImg = () => {
       }
 
       reader.readAsDataURL(file)
+    } else {
+      showToast("invalid file type", "Please Select an image file", "error")
+      setImgUrl(null)
     }
   }
+  console.log(imgUrl);
 
   return {handleImageChange, imgUrl}
 }
