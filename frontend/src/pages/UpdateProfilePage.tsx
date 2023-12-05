@@ -32,8 +32,6 @@ export default function UpdateProfilePage() {
   const { handleImageChange } = usePreviewImg()
   const showToast = useShowToast();
 
-  console.log(user, "user is here");
-
   const handleUpdate = async () => {
     try {
       const res = await fetch("/api/users/update", {
