@@ -59,6 +59,7 @@ export default function UpdateProfilePage() {
 
 
   return (
+    <form>
     <Flex
       align={'center'}
       justify={'center'}
@@ -160,5 +161,6 @@ export default function UpdateProfilePage() {
         </Stack>
       </Stack>
     </Flex>
+    </form>
   )
 }
