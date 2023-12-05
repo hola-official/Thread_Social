@@ -77,7 +77,7 @@ export default function UpdateProfilePage() {
         <FormControl>
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src="https://bit.ly/sage-adebayo" />
+              <Avatar size="xl" src={user.profilePic} />
             </Center>
             <Center w="full">
               <Button w="full">Change Avatar</Button>
@@ -120,7 +120,7 @@ export default function UpdateProfilePage() {
             placeholder="your bio..."
             _placeholder={{ color: 'gray.500' }}
             type="textarea"
-            onChange={(e) => setInputs({...inputs, email: e.target.value})}
+            onChange={(e) => setInputs({...inputs, bio: e.target.value})}
             value={inputs.bio}
           />
         </FormControl>
