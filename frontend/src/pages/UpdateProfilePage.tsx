@@ -80,7 +80,8 @@ export default function UpdateProfilePage() {
               <Avatar size="xl" boxShadow={'md'} src={user.profilePic} />
             </Center>
             <Center w="full">
-              <Button w="full">Change Avatar</Button>
+              <Button onClick={(e) => fileRef.current.click()} w="full">Change Avatar</Button>
+              <Input type='file' hidden ref={fileRef} />
             </Center>
           </Stack>
         </FormControl>
