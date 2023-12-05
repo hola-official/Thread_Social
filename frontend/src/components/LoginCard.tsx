@@ -26,7 +26,6 @@ export default function LoginCard() {
   const setAuthScreen = useSetRecoilState(authScreenAtom);
 
   const [inputs, setInputs] = useState({
-    email: "",
     username: "",
     password: "",
   });
