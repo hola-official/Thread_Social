@@ -1,5 +1,5 @@
-import { Button } from '@chakra-ui/react'
 import React from 'react'
+import { Button } from '@chakra-ui/react'
 import { AiOutlineLogout } from "react-icons/ai"
 import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
@@ -30,7 +30,7 @@ const LogoutButton = () => {
     }
   }
   return (
-    <Button position={'fixed'} top={'30px'} right={'30px'} size={'sm'}>
+    <Button position={'fixed'} top={'30px'} right={'30px'} size={'sm'} onClick={handleLogout}>
       <AiOutlineLogout size={20} />
     </Button>
   )
