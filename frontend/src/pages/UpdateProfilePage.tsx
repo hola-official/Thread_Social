@@ -17,6 +17,7 @@ import {
 import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import useShowToast from '../hooks/useShowToast'
+import usePreviewImg from '../hooks/usePreviewImg'
 
 export default function UpdateProfilePage() {
   const [user, setUser] = useRecoilState(userAtom)
@@ -28,6 +29,7 @@ export default function UpdateProfilePage() {
     password: "",
   })
   const fileRef = useRef(null)
+  const {handleImageChange} = usePreviewImg()
   const showToast = useShowToast();
 
   console.log(user, "user is here");
