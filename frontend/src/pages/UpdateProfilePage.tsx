@@ -28,8 +28,7 @@ export default function UpdateProfilePage() {
         bg={useColorModeValue('white', 'gray.dark')}
         rounded={'xl'}
         boxShadow={'lg'}
-        p={6}
-        my={12}>
+        p={6}>
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
           User Profile Edit
         </Heading>
