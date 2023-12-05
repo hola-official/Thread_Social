@@ -34,7 +34,7 @@ export default function UpdateProfilePage() {
 
   const handleUpdate = async () => {
     try {
-      const res = await fetch("/api/users/update", {
+      const res = await fetch("/api/users/update/:id", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
