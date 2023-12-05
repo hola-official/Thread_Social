@@ -21,7 +21,7 @@ import usePreviewImg from '../hooks/usePreviewImg'
 
 export default function UpdateProfilePage() {
   const [user, setUser] = useRecoilState(userAtom)
-  const[inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState({
     name: user.name,
     username: user.username,
     email: user.email,
@@ -29,7 +29,7 @@ export default function UpdateProfilePage() {
     password: "",
   })
   const fileRef = useRef(null)
-  const {handleImageChange} = usePreviewImg()
+  const { handleImageChange } = usePreviewImg()
   const showToast = useShowToast();
 
   console.log(user, "user is here");
@@ -44,14 +44,14 @@ export default function UpdateProfilePage() {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      
-      
+
+
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
       }
       console.log(data);
-      
+
       localStorage.setItem("user-threads", JSON.stringify(data));
       setUser(data);
     } catch (error) {
@@ -59,7 +59,7 @@ export default function UpdateProfilePage() {
     }
   };
 
-  
+
   return (
     <Flex
       align={'center'}
@@ -84,7 +84,7 @@ export default function UpdateProfilePage() {
             </Center>
             <Center w="full">
               <Button onClick={() => fileRef.current.click()} w="full">Change Avatar</Button>
-              <Input type='file' hidden ref={fileRef}/>
+              <Input type='file' hidden ref={fileRef} />
             </Center>
           </Stack>
         </FormControl>
@@ -94,7 +94,7 @@ export default function UpdateProfilePage() {
             placeholder="your fullname"
             _placeholder={{ color: 'gray.500' }}
             type="text"
-            onChange={(e) => setInputs({...inputs, name: e.target.value})}
+            onChange={(e) => setInputs({ ...inputs, name: e.target.value })}
             value={inputs.name}
           />
         </FormControl>
@@ -104,7 +104,7 @@ export default function UpdateProfilePage() {
             placeholder="UserName"
             _placeholder={{ color: 'gray.500' }}
             type="text"
-            onChange={(e) => setInputs({...inputs, username: e.target.value})}
+            onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
             value={inputs.username}
           />
         </FormControl>
@@ -114,7 +114,7 @@ export default function UpdateProfilePage() {
             placeholder="your-email@example.com"
             _placeholder={{ color: 'gray.500' }}
             type="email"
-            onChange={(e) => setInputs({...inputs, email: e.target.value})}
+            onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
             value={inputs.email}
           />
         </FormControl>
@@ -124,7 +124,7 @@ export default function UpdateProfilePage() {
             placeholder="your bio..."
             _placeholder={{ color: 'gray.500' }}
             type="textarea"
-            onChange={(e) => setInputs({...inputs, bio: e.target.value})}
+            onChange={(e) => setInputs({ ...inputs, bio: e.target.value })}
             value={inputs.bio}
           />
         </FormControl>
@@ -134,7 +134,7 @@ export default function UpdateProfilePage() {
             placeholder="password"
             _placeholder={{ color: 'gray.500' }}
             type="password"
-            onChange={(e) => setInputs({...inputs, password: e.target.value})}
+            onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
             value={inputs.password}
           />
         </FormControl>
@@ -156,7 +156,7 @@ export default function UpdateProfilePage() {
               bg: 'green.500',
             }}
             onClick={handleUpdate}
-            >
+          >
             Submit
           </Button>
         </Stack>
