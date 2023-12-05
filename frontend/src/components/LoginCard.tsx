@@ -43,7 +43,7 @@ export default function LoginCard() {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      
+
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
@@ -80,7 +80,7 @@ export default function LoginCard() {
               <Input
                 type="text"
                 onChange={(e) =>
-                  setInputs({ ...inputs, username: e.target.value })
+                  setInputs((inputs) => ({ ...inputs, username: e.target.value }))
                 }
                 value={inputs.username}
               />
@@ -91,7 +91,7 @@ export default function LoginCard() {
                 <Input
                   type={showPassword ? "text" : "password"}
                   onChange={(e) =>
-                    setInputs({ ...inputs, password: e.target.value })
+                    setInputs((inputs) => ({ ...inputs, password: e.target.value }))
                   }
                   value={inputs.password}
                 />
