@@ -149,7 +149,7 @@ const followUnfollowUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     const { name, email, username, password, bio } = req.body;
-    let {profilePic} = req.pic
+    let { profilePic } = req.pic
     const userId = req.user._id;
     try {
         let user = await User.findById(userId);
@@ -163,6 +163,13 @@ const updateUser = async (req, res) => {
             const salt = await bcrypt.getSalt(10);
             const hashedPassword = await bcrypt.hash(password, salt);
             user.password = hashedPassword;
+        }
+        if (profilePic) {
+            if (user.profilePic) {
+                await cloudinary.uploader.destroy(user.profilePic.split('/').pop().split('.')[0])
+            }
+            const uploadResponse = await cloudinary.uploader.upload(profilePic)
+            profilePic = uploadResponse.secure_url;
         }
         user.name = name || user.name;
         user.email = email || user.email;
