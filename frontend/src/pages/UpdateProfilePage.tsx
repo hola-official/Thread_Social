@@ -46,6 +46,14 @@ export default function UpdateProfilePage() {
           </Stack>
         </FormControl>
         <FormControl isRequired>
+          <FormLabel>Full name</FormLabel>
+          <Input
+            placeholder="your fullname"
+            _placeholder={{ color: 'gray.500' }}
+            type="text"
+          />
+        </FormControl>
+        <FormControl isRequired>
           <FormLabel>User name</FormLabel>
           <Input
             placeholder="UserName"
