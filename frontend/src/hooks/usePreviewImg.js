@@ -1,0 +1,14 @@
+import { useState } from "react";
+
+const usePreviewImg = () => {
+  const [imgUrl, setImgUrl] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.value.files[0]
+    console.log(file);
+  }
+
+  return{handleImageChange, imgUrl}
+}
+
+export default usePreviewImg

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import {
   Button,
@@ -27,6 +27,7 @@ export default function UpdateProfilePage() {
     bio: user.bio,
     password: "",
   })
+  const fileRef = useRef(null)
   const showToast = useShowToast();
 
   console.log(user, "user is here");
@@ -80,8 +81,8 @@ export default function UpdateProfilePage() {
               <Avatar size="xl" boxShadow={'md'} src={user.profilePic} />
             </Center>
             <Center w="full">
-              <Button onClick={(e) => fileRef.current.click()} w="full">Change Avatar</Button>
-              <Input type='file' hidden ref={fileRef} />
+              <Button onClick={() => fileRef.current.click()} w="full">Change Avatar</Button>
+              <Input type='file' hidden ref={fileRef}/>
             </Center>
           </Stack>
         </FormControl>
