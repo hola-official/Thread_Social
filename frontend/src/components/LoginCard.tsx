@@ -79,7 +79,7 @@ export default function LoginCard() {
             <FormControl isRequired>
               <FormLabel>Username</FormLabel>
               <Input
-                type={inputs ? "email" : "text"}
+                type="text"
                 onChange={(e) =>
                   setInputs({ ...inputs, username: e.target.value })
                 }
