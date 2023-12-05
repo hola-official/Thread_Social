@@ -77,7 +77,7 @@ export default function UpdateProfilePage() {
         <FormControl>
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src={user.profilePic} />
+              <Avatar size="xl" boxShadow={'md'} src={user.profilePic} />
             </Center>
             <Center w="full">
               <Button w="full">Change Avatar</Button>
