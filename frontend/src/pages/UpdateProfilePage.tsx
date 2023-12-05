@@ -70,6 +70,14 @@ export default function UpdateProfilePage() {
           />
         </FormControl>
         <FormControl isRequired>
+          <FormLabel>Email address</FormLabel>
+          <Input
+            placeholder="your-email@example.com"
+            _placeholder={{ color: 'gray.500' }}
+            type="email"
+          />
+        </FormControl>
+        <FormControl isRequired>
           <FormLabel>Password</FormLabel>
           <Input
             placeholder="password"
