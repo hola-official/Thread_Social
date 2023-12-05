@@ -37,16 +37,15 @@ export default function UpdateProfilePage() {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/users/update/:id", {
-        method: "POST",
+      const res = await fetch(`/api/users/update/${user.id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(inputs),
+        body: JSON.stringify({...inputs, profilePic: imgUrl}),
       });
+
       const data = await res.json();
-
-
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
