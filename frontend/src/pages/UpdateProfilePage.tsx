@@ -18,7 +18,6 @@ import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import useShowToast from '../hooks/useShowToast'
 import usePreviewImg from '../hooks/usePreviewImg'
-import { log } from 'console'
 
 export default function UpdateProfilePage() {
   const [user, setUser] = useRecoilState(userAtom)
@@ -37,7 +36,7 @@ export default function UpdateProfilePage() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`/api/users/update/${user.id}`, {
+      const res = await fetch(`/api/users/update/${user._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -46,14 +45,14 @@ export default function UpdateProfilePage() {
       });
 
       const data = await res.json();
-      if (data.error) {
-        showToast("Error", data.error, "error");
-        return;
-      }
+      // if (data.error) {
+      //   showToast("Error", data.error, "error");
+      //   return;
+      // }
       console.log(data);
 
-      localStorage.setItem("user-threads", JSON.stringify(data));
-      setUser(data);
+      // localStorage.setItem("user-threads", JSON.stringify(data));
+      // setUser(data);
     } catch (error) {
       showToast("Error", error, "error");
     }
