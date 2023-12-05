@@ -82,7 +82,7 @@ export default function UpdateProfilePage() {
             </Center>
             <Center w="full">
               <Button onClick={() => fileRef.current.click()} w="full">Change Avatar</Button>
-              <Input type='file' hidden ref={fileRef} />
+              <Input type='file' hidden ref={fileRef} onChange={handleImageChange} />
             </Center>
           </Stack>
         </FormControl>
