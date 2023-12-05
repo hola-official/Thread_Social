@@ -43,6 +43,8 @@ export default function SignUpCard() {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
+      console.log('Sign Up Successfull', data);
+      
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
@@ -54,7 +56,7 @@ export default function SignUpCard() {
       showToast("Error", error, "error");
     }
   };
-  
+
   return (
     <Flex align={"center"} justify={"center"}>
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>

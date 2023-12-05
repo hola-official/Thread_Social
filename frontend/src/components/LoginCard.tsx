@@ -26,6 +26,7 @@ export default function LoginCard() {
   const setAuthScreen = useSetRecoilState(authScreenAtom);
 
   const [inputs, setInputs] = useState({
+    email: "",
     username: "",
     password: "",
   });
@@ -78,7 +79,7 @@ export default function LoginCard() {
             <FormControl isRequired>
               <FormLabel>Username</FormLabel>
               <Input
-                type="text"
+                type={inputs ? "email" : "text"}
                 onChange={(e) =>
                   setInputs({ ...inputs, username: e.target.value })
                 }
