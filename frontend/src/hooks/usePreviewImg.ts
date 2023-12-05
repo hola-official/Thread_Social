@@ -1,7 +1,9 @@
 import { useState } from "react";
+import useShowToast from "./useShowToast";
 
 const usePreviewImg = () => {
   const [imgUrl, setImgUrl] = useState(null);
+  const showToast = useShowToast()
 
   const handleImageChange = (e) => {
     const file = e.target.files[0]
