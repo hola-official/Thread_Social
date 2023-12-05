@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   Button,
@@ -16,6 +16,13 @@ import {
 } from '@chakra-ui/react'
 
 export default function UpdateProfilePage() {
+  const[inputs, setInputs] = useState({
+    name: "",
+    username: "",
+    email: "",
+    bio: "",
+    password: "",
+  })
   return (
     <Flex
       align={'center'}
@@ -94,11 +101,11 @@ export default function UpdateProfilePage() {
             Cancel
           </Button>
           <Button
-            bg={'blue.400'}
+            bg={'green.400'}
             color={'white'}
             w="full"
             _hover={{
-              bg: 'blue.500',
+              bg: 'green.500',
             }}>
             Submit
           </Button>
