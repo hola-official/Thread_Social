@@ -29,6 +29,7 @@ const LogoutButton = () => {
       showToast("Error", error, "error")
     }
   }
+  
   return (
     <Button position={'fixed'} top={'30px'} right={'30px'} size={'sm'} onClick={handleLogout}>
       <AiOutlineLogout size={20} />
