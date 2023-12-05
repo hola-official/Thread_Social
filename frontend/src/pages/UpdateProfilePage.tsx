@@ -145,7 +145,9 @@ export default function UpdateProfilePage() {
             w="full"
             _hover={{
               bg: 'green.500',
-            }}>
+            }}
+            onClick={handleUpdate}
+            >
             Submit
           </Button>
         </Stack>
