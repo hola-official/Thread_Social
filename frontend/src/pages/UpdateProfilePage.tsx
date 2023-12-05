@@ -20,15 +20,14 @@ import { SmallCloseIcon } from '@chakra-ui/icons'
 export default function UpdateProfilePage() {
   return (
     <Flex
-      minH={'100vh'}
       align={'center'}
       justify={'center'}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+      >
       <Stack
         spacing={4}
         w={'full'}
         maxW={'md'}
-        bg={useColorModeValue('white', 'gray.700')}
+        bg={useColorModeValue('white', 'gray.dark')}
         rounded={'xl'}
         boxShadow={'lg'}
         p={6}
@@ -37,23 +36,12 @@ export default function UpdateProfilePage() {
           User Profile Edit
         </Heading>
         <FormControl id="userName">
-          <FormLabel>User Icon</FormLabel>
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src="https://bit.ly/sage-adebayo">
-                <AvatarBadge
-                  as={IconButton}
-                  size="sm"
-                  rounded="full"
-                  top="-10px"
-                  colorScheme="red"
-                  aria-label="remove Image"
-                  icon={<SmallCloseIcon />}
-                />
-              </Avatar>
+              <Avatar size="xl" src="https://bit.ly/sage-adebayo"/>
             </Center>
             <Center w="full">
-              <Button w="full">Change Icon</Button>
+              <Button w="full">Change Avatar</Button>
             </Center>
           </Stack>
         </FormControl>
