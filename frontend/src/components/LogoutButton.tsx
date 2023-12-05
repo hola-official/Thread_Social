@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button } from '@chakra-ui/react'
 import { AiOutlineLogout } from "react-icons/ai"
-import { useRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import useShowToast from '../hooks/useShowToast'
 
 const LogoutButton = () => {
-  const setUser = useRecoilState(userAtom)
+  const setUser = useSetRecoilState(userAtom)
   const showToast = useShowToast()
 
   const handleLogout = async () => {
@@ -19,7 +19,7 @@ const LogoutButton = () => {
       })
       const data = await res.json()
       if (data.error) {
-        showToast("Error", error, 'error');
+        showToast("Error", Error, 'error');
         return;
       }
       localStorage.removeItem("user-threads");
