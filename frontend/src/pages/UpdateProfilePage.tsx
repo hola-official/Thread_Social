@@ -14,8 +14,11 @@ import {
   Avatar,
   Center,
 } from '@chakra-ui/react'
+import { useRecoilState } from 'recoil'
+import userAtom from '../atoms/userAtom'
 
 export default function UpdateProfilePage() {
+  const [user, setUser] = useRecoilState(userAtom)
   const[inputs, setInputs] = useState({
     name: "",
     username: "",
@@ -23,6 +26,9 @@ export default function UpdateProfilePage() {
     bio: "",
     password: "",
   })
+
+  console.log(user, "user is here");
+  
   return (
     <Flex
       align={'center'}
