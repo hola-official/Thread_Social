@@ -22,7 +22,7 @@ export default function UpdateProfilePage() {
     <Flex
       align={'center'}
       justify={'center'}
-      >
+    >
       <Stack
         spacing={4}
         w={'full'}
@@ -38,7 +38,7 @@ export default function UpdateProfilePage() {
         <FormControl id="userName">
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src="https://bit.ly/sage-adebayo"/>
+              <Avatar size="xl" src="https://bit.ly/sage-adebayo" />
             </Center>
             <Center w="full">
               <Button w="full">Change Avatar</Button>
