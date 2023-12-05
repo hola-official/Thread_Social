@@ -18,6 +18,7 @@ import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import useShowToast from '../hooks/useShowToast'
 import usePreviewImg from '../hooks/usePreviewImg'
+import { log } from 'console'
 
 export default function UpdateProfilePage() {
   const [user, setUser] = useRecoilState(userAtom)
@@ -157,7 +158,6 @@ export default function UpdateProfilePage() {
                 bg: 'green.500',
               }}
               type='submit'
-              onClick={handleSubmit}
             >
               Submit
             </Button>
