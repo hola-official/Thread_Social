@@ -35,7 +35,7 @@ const UserHeader = ({ user }) => {
 
     const handleFollowUnfollow = async () => {
         try {
-            const res = await (`/api/users/follow/${user._id}`,
+            const res = await fetch(`/api/users/follow/${user._id}`,
             {
                 method: "POST",
                 headers: {
