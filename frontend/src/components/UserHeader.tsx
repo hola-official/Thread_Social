@@ -48,6 +48,9 @@ const UserHeader = ({ user }) => {
                 showToast("Error", data.error, "error");
                 return;
             }
+            setFollowing(!following)
+            console.log(data);
+            
         } catch (error) {
             showToast("Error", error, "error");
         }
