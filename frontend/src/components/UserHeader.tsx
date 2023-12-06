@@ -65,8 +65,8 @@ const UserHeader = ({ user }) => {
             </Flex>
             <Text>{user.bio}</Text>
 
-            <Link>
-            <Button size={'sm'}>Update Profile</Button>
+            <Link as={RouterLink} to='/update'>
+                <Button size={'sm'}>Update Profile</Button>
             </Link>
 
             <Flex w={"full"} justifyContent={"space-between"}>
