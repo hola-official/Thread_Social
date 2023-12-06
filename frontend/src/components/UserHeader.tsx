@@ -8,6 +8,7 @@ import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
+import { Link as RouterLink } from "react-router-dom";
 
 const UserHeader = ({ user }) => {
     const toast = useToast();
