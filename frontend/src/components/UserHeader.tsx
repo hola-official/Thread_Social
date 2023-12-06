@@ -117,7 +117,7 @@ const UserHeader = ({ user }) => {
 
             {currentUser._id !== user._id && (
                 <Link as={RouterLink}>
-                    <Button onClick={handleFollowUnfollow}>
+                    <Button onClick={handleFollowUnfollow} isLoading={updating} >
                         {following ? "Unfollow" : "Follow"}
                     </Button>
                 </Link>
