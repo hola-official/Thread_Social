@@ -7,7 +7,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
 
-const UserHeader = () => {
+const UserHeader = ({user}) => {
     const toast = useToast();
     const copyURL = () => {
         const currentURL = window.location.href;
