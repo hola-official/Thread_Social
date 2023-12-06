@@ -66,11 +66,11 @@ const UserHeader = ({ user }) => {
             <Text>{user.bio}</Text>
 
                         {currentUser._id === user._id && (
-                            
-                        )}
+
             <Link as={RouterLink} to='/update'>
                 <Button size={'sm'}>Update Profile</Button>
             </Link>
+                        )}
 
             <Flex w={"full"} justifyContent={"space-between"}>
                 <Flex gap={2} alignItems={"center"}>
