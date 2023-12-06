@@ -35,7 +35,7 @@ const CreatePosts = () => {
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Lorem count={2} />
+            Text
           </ModalBody>
 
           <ModalFooter>
