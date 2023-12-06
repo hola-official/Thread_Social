@@ -15,12 +15,12 @@ const UserPage = () => {
         const res = await fetch(`/api/users/profile/${username}`)
         const data = await res.json()
 
-        if(data.error) {
+        if (data.error) {
           showToast("Error", data.error, "error");
           return;
         }
         // console.log(data);
-        
+
         setUser(data)
       } catch (error) {
         showToast("Error", error, "error")
@@ -30,7 +30,7 @@ const UserPage = () => {
     getUser();
   }, [username, showToast])
 
-  if(!user) return null
+  if (!user) return null
   return (
     <>
       <UserHeader user={user} />
