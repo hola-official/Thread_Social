@@ -5,33 +5,34 @@ const mongoose = require("mongoose");
 const cloudinary = require('cloudinary').v2
 
 const getUserProfile = async (req, res) => {
-    // we fetch the user profile either by username or userId
-    // query is either username or userId
+	//We fetch the user profile either by username or userId
+	//query is either username or userId
 
-    const { query } = req.params;
-    try {
-        let user;
+	const { query } = req.params;
 
-        // query is userId
-        if (mongoose.Types.ObjectId.isValid(query)) {
-            user = await User.findOne({ _id: query })
-                .select("-password")
-                .select("-updatedAt");
-        } else {
-            // query is username
-            user = await User.findOne({ username: query })
-                .select("-password")
-                .select("-updatedAt");
-        }
+	try {
+		let user;
+		//query is userId
+		if (mongoose.Types.ObjectId.isValid(query)) {
+			user = await User.findOne({ _id: query })
+				.select("-password")
+				.select("-updatedAt");
+		} else {
+			//query is username
+			user = await User.findOne({ username: query })
+				.select("-password")
+				.select("-updatedAt");
+		}
 
-        if (!user)
-            // if user not found
-            return res.status(404).json({ error: "User not found" });
-        res.status(200).json(user);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-        console.log("Error in getUserProfile", err.message);
-    }
+		if (!user) {
+			return res.status(400).json({ error: "User not found" });
+		} else {
+			return res.status(200).json(user);
+		}
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+		console.log("Error in getUserProfile: ", error.message);
+	}
 };
 
 const signUpUser = async (req, res) => {
