@@ -1,8 +1,13 @@
+import { Button } from '@chakra-ui/react'
 import React from 'react'
 
 const CreatePosts = () => {
   return (
-    <div>CreatePosts</div>
+    <>
+      <Button>
+          Post
+      </Button>
+    </>
   )
 }
 
