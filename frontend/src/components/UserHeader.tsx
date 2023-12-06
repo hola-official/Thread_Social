@@ -14,6 +14,8 @@ const UserHeader = ({ user }) => {
     const toast = useToast();
     const currentUser = useRecoilValue(userAtom);
     const [following, setFollowing] = useState(user.followers.includes(currentUser._id));
+    console.log(following);
+    
 
     const copyURL = () => {
         const currentURL = window.location.href;
@@ -27,6 +29,14 @@ const UserHeader = ({ user }) => {
             });
         });
     };
+
+    const handleFollowUnfollow = async () => {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
     return (
         <VStack gap={4} alignItems={"start"}>
             <Flex justifyContent={"space-between"} w={"full"}>
@@ -74,7 +84,7 @@ const UserHeader = ({ user }) => {
 
             {currentUser._id !== user._id && (
                 <Link as={RouterLink}>
-                    <Button>Follow</Button>
+                    <Button onClick={handleFollowUnfollow}>{following ? "Unfollow" : "Follow"}</Button>
                 </Link>
             )}
 
