@@ -36,28 +36,28 @@ const UserHeader = ({ user }) => {
     const handleFollowUnfollow = async () => {
         try {
             const res = await fetch(`/api/users/follow/${user._id}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
 
             const data = await res.json();
             if (data.error) {
                 showToast("Error", data.error, "error");
                 return;
             }
-            if(following) {
+            if (following) {
                 showToast("Success", `Unfollowed ${user.name}`, "success")
                 user.followers.pop()
-            }else {
+            } else {
                 showToast("Success", `${user.name} followed!`, "success")
                 user.followers.push(currentUser._id)
             }
             setFollowing(!following)
             console.log(data);
-            
+
         } catch (error) {
             showToast("Error", error, "error");
         }
