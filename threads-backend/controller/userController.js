@@ -177,7 +177,8 @@ const updateUser = async (req, res) => {
         user.profilePic = profilePic || user.profilePic;
         user.bio = bio || user.bio;
 
-        await user.save();
+        user = await user.save();
+        user.password = null
         res.status(200).json( user );
     } catch (err) {
         res.status(500).json({ error: err.message });

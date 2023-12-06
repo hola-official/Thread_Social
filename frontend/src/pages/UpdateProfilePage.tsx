@@ -45,14 +45,14 @@ export default function UpdateProfilePage() {
       });
 
       const data = await res.json();
-      // if (data.error) {
-      //   showToast("Error", data.error, "error");
-      //   return;
-      // }
-      console.log(data);
+      if (data.error) {
+        showToast("Error", data.error, "error");
+        return;
+      }
+      showToast("Success", "Profile update successfully", "success") 
 
-      // localStorage.setItem("user-threads", JSON.stringify(data));
-      // setUser(data);
+      localStorage.setItem("user-threads", JSON.stringify(data));
+      setUser(data);
     } catch (error) {
       showToast("Error", error, "error");
     }
