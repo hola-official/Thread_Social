@@ -63,7 +63,11 @@ const UserHeader = ({ user }) => {
                 </Box>
             </Flex>
             <Text>{user.bio}</Text>
-            <Button>Update Profile</Button>
+
+            <Link>
+            <Button size={'sm'}>Update Profile</Button>
+            </Link>
+
             <Flex w={"full"} justifyContent={"space-between"}>
                 <Flex gap={2} alignItems={"center"}>
                     <Text color={"gray.light"}>{user.followers.length}</Text>
