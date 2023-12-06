@@ -1,6 +1,6 @@
 import React from "react";
 import { VStack, Flex, Box, Text, Link } from "@chakra-ui/layout";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar, Button } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/toast";
 import { Portal } from "@chakra-ui/portal";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
@@ -12,7 +12,7 @@ import userAtom from "../atoms/userAtom";
 const UserHeader = ({ user }) => {
     const toast = useToast();
     const currentUser = useRecoilValue(userAtom)
-    
+
     const copyURL = () => {
         const currentURL = window.location.href;
         navigator.clipboard.writeText(currentURL).then(() => {
@@ -63,6 +63,7 @@ const UserHeader = ({ user }) => {
                 </Box>
             </Flex>
             <Text>{user.bio}</Text>
+            <Button>Update Profile</Button>
             <Flex w={"full"} justifyContent={"space-between"}>
                 <Flex gap={2} alignItems={"center"}>
                     <Text color={"gray.light"}>{user.followers.length}</Text>
