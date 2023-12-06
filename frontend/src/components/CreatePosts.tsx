@@ -15,6 +15,7 @@ import {
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
+
   return (
     <>
       <Button
@@ -23,6 +24,7 @@ const CreatePosts = () => {
         right={10}
         leftIcon={<AddIcon />}
         bg={"gray"}
+        onClick={onOpen}
       >
         Post
       </Button>
