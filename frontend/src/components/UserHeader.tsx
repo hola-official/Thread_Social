@@ -36,7 +36,7 @@ const UserHeader = ({ user }) => {
         try {
             
         } catch (error) {
-            
+            showToast("Error", error, "error")
         }
     }
     return (
