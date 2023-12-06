@@ -7,7 +7,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
 
-const UserHeader = ({user}) => {
+const UserHeader = ({ user }) => {
     const toast = useToast();
     const copyURL = () => {
         const currentURL = window.location.href;
@@ -43,7 +43,10 @@ const UserHeader = ({user}) => {
                 </Box>
                 <Box>
                     {user.profilePic && (
-                    <Avatar name={user.name} src={user.profilePic} size={{ base: "md", md: "xl"}} />
+                        <Avatar name={user.name} src={user.profilePic} size={{ base: "md", md: "xl" }} />
+                    )}
+                    {!user.profilePic && (
+                        <Avatar name={user.name} src="https://bit.ly/broken-link" size={{ base: "md", md: "xl" }} />
                     )}
                 </Box>
             </Flex>
