@@ -18,7 +18,7 @@ const UserHeader = ({ user }) => {
         user.followers.includes(currentUser._id)
     );
     const showToast = useShowToast();
-    console.log(following);
+    const [updating, setUpdating] = useState(false)
 
     const copyURL = () => {
         const currentURL = window.location.href;
