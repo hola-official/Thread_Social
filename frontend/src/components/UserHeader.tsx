@@ -7,10 +7,11 @@ import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
 import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
 
 const UserHeader = ({ user }) => {
     const toast = useToast();
-    const currentUser = useRecoilValue()
+    const currentUser = useRecoilValue(userAtom)
     const copyURL = () => {
         const currentURL = window.location.href;
         navigator.clipboard.writeText(currentURL).then(() => {
