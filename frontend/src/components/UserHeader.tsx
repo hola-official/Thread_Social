@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { VStack, Flex, Box, Text, Link } from "@chakra-ui/layout";
 import { Avatar, Button } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/toast";
@@ -13,6 +13,7 @@ import { Link as RouterLink } from "react-router-dom";
 const UserHeader = ({ user }) => {
     const toast = useToast();
     const currentUser = useRecoilValue(userAtom);
+    const [following, setFollowing] = useState();
 
     const copyURL = () => {
         const currentURL = window.location.href;
@@ -72,8 +73,8 @@ const UserHeader = ({ user }) => {
             )}
 
             {currentUser._id !== user._id && (
-                <Link as={RouterLink} to="/update">
-                    <Button size={"sm"}>Update Profile</Button>
+                <Link as={RouterLink}>
+                    <Button>Follow</Button>
                 </Link>
             )}
 
