@@ -49,7 +49,7 @@ const UserHeader = ({ user }) => {
                 return;
             }
             if(following) {
-                
+                showToast("Success", `Unfollowed${user.name}`, "success")
             }
             setFollowing(!following)
             console.log(data);
