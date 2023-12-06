@@ -13,7 +13,7 @@ import { Link as RouterLink } from "react-router-dom";
 const UserHeader = ({ user }) => {
     const toast = useToast();
     const currentUser = useRecoilValue(userAtom);
-    const [following, setFollowing] = useState();
+    const [following, setFollowing] = useState(user.followers.includes(currentUser._id));
 
     const copyURL = () => {
         const currentURL = window.location.href;
