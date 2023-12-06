@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import UserHeader from '../components/UserHeader'
 import UserPosts from '../components/UserPosts'
 
