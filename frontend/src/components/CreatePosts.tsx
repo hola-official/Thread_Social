@@ -15,6 +15,7 @@ import {
   Text,
   Input,
   Flex,
+  Image,
 } from "@chakra-ui/react";
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
@@ -80,9 +81,9 @@ const CreatePosts = () => {
 
             {imgUrl && (
               <Flex mt={'full'} position={'relative'}>
-                <img
+                <Image
                   src={imgUrl}
-                  alt="post"
+                  alt="select image"
                   style={{
                     width: "100%"
                   }} />
