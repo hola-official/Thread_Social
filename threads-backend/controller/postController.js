@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary').v2
 const createPost = async (req, res) => {
     try {
         const { postedBy, text } = req.body;
-        let img = req.body
+        let {img} = req.body
 
         if (!postedBy || !text) {
             return res
