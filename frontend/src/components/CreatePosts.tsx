@@ -88,8 +88,8 @@ const CreatePosts = () => {
                   style={{
                     width: "100%"
                   }} />
-                  <CloseButton onClick={() => {
-                    setImgUrl('');
+                  <CloseButton bg={'gray.800'} position={'absolute'} top={2} right={2} onClick={() => {
+                    setImgUrl('');                    
                   }}/>
 
               </Flex>
