@@ -4,10 +4,11 @@ import UserPosts from '../components/UserPosts'
 import { useParams } from 'react-router-dom'
 import useShowToast from '../hooks/useShowToast'
 
-const UserPage = ({posts}) => {
+const UserPage = () => {
   const [user, setUser] = useState(null)
   const { username } = useParams()
   const showToast = useShowToast()
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const getUser = async () => {
