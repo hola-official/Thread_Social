@@ -9,8 +9,14 @@ import userAtom from "../atoms/userAtom";
 const Header = () => {
         const { colorMode, toggleColorMode } = useColorMode();
         const user = useRecoilValue(userAtom)
+
         return (
                 <Flex justifyContent={"center"} mt={6} mb="12">
+                        {user && (
+                                <Link as={RouterLink} to='/'>
+                                        <AiFillHome size={24} />
+                                </Link>
+                        )}
                         <Image
                                 alt="logo"
                                 w={6}
