@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import useShowToast from "../hooks/useShowToast";
 import { useParams } from "react-router-dom";
@@ -36,7 +36,7 @@ const CreatePosts = () => {
   const [remainingChar, setRemainingChar] = useState(MAX_CHAR)
   const user = useRecoilValue(userAtom)
   const showToast = useShowToast()
-  const [posts, setPosts] = useState()
+  const [posts, setPosts] = useRecoilState()
   const { username } = useParams()
 
   const handleTextChange = (e) => {
