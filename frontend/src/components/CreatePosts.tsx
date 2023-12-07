@@ -74,7 +74,6 @@ const CreatePosts = () => {
       }
 
       onClose()
-      setPostText("")
     } catch (error) {
       showToast("Error", error, "error")
     } finally {
