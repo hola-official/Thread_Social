@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 import {
   Button,
@@ -18,6 +18,7 @@ import {
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
+  const [postText, setPostText] = useState('')
 
   const handleTextChange = async () => {
     try {
@@ -52,8 +53,8 @@ const CreatePosts = () => {
                 value={postText}
               />
 
-              <Text fontSize={'xs'}>
-                  500/500
+              <Text fontSize={'xs'} fontWeight={'bold'} textAlign={'right'} m={1} color={'gray.800'}>
+                500/500
               </Text>
             </FormControl>
           </ModalBody>
