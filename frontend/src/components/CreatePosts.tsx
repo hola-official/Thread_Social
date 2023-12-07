@@ -18,6 +18,13 @@ const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
 
+  const handleTextChange = async () => {
+    try {
+
+    } catch (error) {
+
+    }
+  }
   return (
     <>
       <Button
