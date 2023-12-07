@@ -25,7 +25,7 @@ const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState("");
-  const { handleImageChange, imgUrl } = usePreviewImg();
+  const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const imageRef = useRef(null);
 
   const handleTextChange = async () => {
@@ -67,6 +67,7 @@ const CreatePosts = () => {
               >
                 500/500
               </Text>
+
               <Input
                 type="file"
                 hidden
@@ -104,7 +105,7 @@ const CreatePosts = () => {
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+              Post
             </Button>
           </ModalFooter>
         </ModalContent>
