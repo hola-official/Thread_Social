@@ -1,9 +1,11 @@
 const User = require("../models/userModel");
 const Post = require("../models/postModel");
+const cloudinary = require('cloudinary').v2
 
 const createPost = async (req, res) => {
     try {
-        const { postedBy, text, img } = req.body;
+        const { postedBy, text } = req.body;
+        let img = req.body
 
         if (!postedBy || !text) {
             return res
@@ -17,11 +19,16 @@ const createPost = async (req, res) => {
             return res.status(404).json({ message: "User not found!" });
         }
 
-        const maxLenth = 500;
-        if (text.length > maxLenth) {
+        const maxLength = 500;
+        if (text.length > maxLength) {
             return res
                 .status(400)
-                .json({ message: `Text must be less than ${maxLenth} characters` });
+                .json({ message: `Text must be less than ${maxLength} characters` });
+        }
+
+        if(img) {
+            const uploadedResponse = await cloudinary.uploader.upload(img)
+            img = uploadedResponse.secure_url;
         }
 
         const newPost = new Post({ postedBy, text, img });
