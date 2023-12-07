@@ -22,7 +22,7 @@ import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
 
 const MAX_CHAR = 500
-const CreatePosts = () => {
+const CreatePosts = ({ user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState("");
@@ -47,12 +47,15 @@ const CreatePosts = () => {
   const handleCreatePost = async () => {
     setLoading(true)
     try {
-      const res = await fetch('/api/posts/create',{
+      const res = await fetch('/api/posts/create', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({ postedBy: user._id })
       })
+      const data = await res.json()
+      console.log(data)
     } catch (error) {
 
     } finally {
