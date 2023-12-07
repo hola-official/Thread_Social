@@ -4,7 +4,7 @@ import UserPosts from '../components/UserPosts'
 import { useParams } from 'react-router-dom'
 import useShowToast from '../hooks/useShowToast'
 
-const UserPage = () => {
+const UserPage = ({posts}) => {
   const [user, setUser] = useState(null)
   const { username } = useParams()
   const showToast = useShowToast()
