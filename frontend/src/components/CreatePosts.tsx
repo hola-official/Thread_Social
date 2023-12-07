@@ -30,7 +30,7 @@ const CreatePosts = () => {
 
   const handleTextChange = async () => {
     try {
-    } catch (error) { }
+    } catch (error) {}
   };
   return (
     <>
@@ -81,17 +81,23 @@ const CreatePosts = () => {
             </FormControl>
 
             {imgUrl && (
-              <Flex mt={'full'} position={'relative'}>
+              <Flex mt={"full"} position={"relative"}>
                 <Image
                   src={imgUrl}
                   alt="select img"
                   style={{
-                    width: "100%"
-                  }} />
-                  <CloseButton bg={'gray.800'} position={'absolute'} top={2} right={2} onClick={() => {
-                    setImgUrl('');                    
-                  }}/>
-
+                    width: "100%",
+                  }}
+                />
+                <CloseButton
+                  bg={"gray.800"}
+                  position={"absolute"}
+                  top={2}
+                  right={2}
+                  onClick={() => {
+                    setImgUrl("");
+                  }}
+                />
               </Flex>
             )}
           </ModalBody>
