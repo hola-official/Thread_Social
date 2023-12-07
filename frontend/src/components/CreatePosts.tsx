@@ -28,10 +28,17 @@ const CreatePosts = () => {
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const imageRef = useRef(null);
 
-  const handleTextChange = async () => {
-    try {
-    } catch (error) { }
+  const handleTextChange = () => {
+
   };
+
+  const handleCreatePost = async () => {
+    try {
+
+    } catch (error) {
+
+    }
+  }
   return (
     <>
       <Button
@@ -104,7 +111,7 @@ const CreatePosts = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="blue" mr={3} onClick={handleCreatePost} isLoading={loading}>
               Post
             </Button>
           </ModalFooter>
