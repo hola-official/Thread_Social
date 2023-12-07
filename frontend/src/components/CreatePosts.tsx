@@ -85,7 +85,7 @@ const CreatePosts = () => {
                 m={1}
                 color={"gray.800"}
               >
-                {remainingChar}/500
+                {remainingChar}/{MAX_CHAR}
               </Text>
 
               <Input
