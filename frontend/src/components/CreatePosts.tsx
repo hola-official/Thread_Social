@@ -20,9 +20,13 @@ import {
 } from "@chakra-ui/react";
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
+import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
+import useShowToast from "../hooks/useShowToast";
+import { useParams } from "react-router-dom";
 
 const MAX_CHAR = 500
-const CreatePosts = ({ user }) => {
+const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState("");
@@ -30,6 +34,10 @@ const CreatePosts = ({ user }) => {
   const [loading, setLoading] = useState(false)
   const imageRef = useRef(null);
   const [remainingChar, setRemainingChar] = useState(MAX_CHAR)
+  const user = useRecoilValue(userAtom)
+  const showToast = useShowToast()
+  const [posts, setPosts] = useState()
+  const { username } = useParams()
 
   const handleTextChange = (e) => {
     const inputText = e.target.value;
@@ -55,9 +63,18 @@ const CreatePosts = ({ user }) => {
         body: JSON.stringify({ postedBy: user._id, text: postText, img: imgUrl })
       })
       const data = await res.json()
+      if (data.error) {
+        showToast("Error", data.error, "error")
+      }
       console.log(data)
-    } catch (error) {
+      showToast("Success", "post created successfully", "success")
+      if (username === user.username) {
+        setPosts([data, ...posts])
+      }
+      onClose()
 
+    } catch (error) {
+      showToast("Error", error, "error")
     } finally {
       setLoading(false)
     }
