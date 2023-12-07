@@ -26,6 +26,7 @@ const CreatePosts = () => {
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState("");
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
+  const [loading, setLoading] = useState()
   const imageRef = useRef(null);
 
   const handleTextChange = () => {
@@ -33,10 +34,14 @@ const CreatePosts = () => {
   };
 
   const handleCreatePost = async () => {
+    if(loading) return;
+    setLoading(true)
     try {
 
     } catch (error) {
 
+    } finally {
+      setLoading(false)
     }
   }
   return (
