@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 import {
   Button,
@@ -13,22 +13,22 @@ import {
   FormControl,
   Textarea,
   Text,
+  Input,
 } from "@chakra-ui/react";
 import usePreviewImg from "../hooks/usePreviewImg";
+import { BsFillImageFill } from "react-icons/bs";
 
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
-  const [postText, setPostText] = useState('')
-  const { handleImageChange, imgUrl } = usePreviewImg()
+  const [postText, setPostText] = useState("");
+  const { handleImageChange, imgUrl } = usePreviewImg();
+  const imageRef = useRef(null);
 
   const handleTextChange = async () => {
     try {
-
-    } catch (error) {
-
-    }
-  }
+    } catch (error) {}
+  };
   return (
     <>
       <Button
@@ -55,9 +55,26 @@ const CreatePosts = () => {
                 value={postText}
               />
 
-              <Text fontSize={'xs'} fontWeight={'bold'} textAlign={'right'} m={1} color={'gray.800'}>
+              <Text
+                fontSize={"xs"}
+                fontWeight={"bold"}
+                textAlign={"right"}
+                m={1}
+                color={"gray.800"}
+              >
                 500/500
               </Text>
+              <Input
+                type="file"
+                hidden
+                ref={imgUrl}
+                onChange={handleImageChange}
+              />
+              <BsFillImageFill
+                style={{ marginLeft: "5px", cursor: "pointer" }}
+                size={16}
+                onClick={() => imageRef.current.click()}
+              />
             </FormControl>
           </ModalBody>
 
