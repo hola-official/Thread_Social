@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary').v2
 const createPost = async (req, res) => {
     try {
         const { postedBy, text } = req.body;
-        let {img} = req.body
+        let { img } = req.body
 
         if (!postedBy || !text) {
             return res
@@ -26,7 +26,7 @@ const createPost = async (req, res) => {
                 .json({ message: `Text must be less than ${maxLength} characters` });
         }
 
-        if(img) {
+        if (img) {
             const uploadedResponse = await cloudinary.uploader.upload(img)
             img = uploadedResponse.secure_url;
         }
