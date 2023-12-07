@@ -2,7 +2,7 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 import { AiFillHome } from "react-icons/ai";
 import { Link as RouterLink } from "react-router-dom";
-// import RxAvartar from './RxAvatar'
+import { RxAvatar } from "react-icons/rx";
 import { Flex, Image, Link, useColorMode } from "@chakra-ui/react";
 import userAtom from "../atoms/userAtom";
 
@@ -17,11 +17,11 @@ const Header = () => {
                                         <AiFillHome size={24} />
                                 </Link>
                         )}
-                        {!user && (
+                        {/* {!user && (
                                 <Link as={RouterLink} to={'/auth'} onClick={() => setAuthScreen("login")} >
                                         Login
                                 </Link>
-                        )}
+                        )} */}
                         <Image
                                 alt="logo"
                                 w={6}
@@ -29,6 +29,12 @@ const Header = () => {
                                 onClick={toggleColorMode}
                                 cursor={"pointer"}
                         />
+
+                        {user && (
+                                <Link as={RouterLink} to={`${user.username}`} >
+                                        <RxAvatar size={30} />
+                                </Link>
+                        )}
                 </Flex>
         );
 };
