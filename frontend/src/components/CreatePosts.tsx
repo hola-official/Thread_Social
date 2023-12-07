@@ -14,11 +14,13 @@ import {
   Textarea,
   Text,
 } from "@chakra-ui/react";
+import usePreviewImg from "../hooks/usePreviewImg";
 
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState('')
+  const { handleImageChange, imgUrl } = usePreviewImg()
 
   const handleTextChange = async () => {
     try {
