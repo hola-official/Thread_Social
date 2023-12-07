@@ -10,6 +10,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  FormControl,
 } from "@chakra-ui/react";
 
 const CreatePosts = () => {
@@ -34,8 +35,10 @@ const CreatePosts = () => {
         <ModalContent>
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            Text
+          <ModalBody p={6}>
+            <FormControl>
+              
+            </FormControl>
           </ModalBody>
 
           <ModalFooter>
