@@ -29,6 +29,7 @@ const CreatePosts = () => {
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const [loading, setLoading] = useState(false)
   const imageRef = useRef(null);
+  const [remainingChar, setRemainingChar] = useState(MAX_CHAR)
 
   const handleTextChange = (e) => {
     const inputText = e.target.value;
@@ -84,7 +85,7 @@ const CreatePosts = () => {
                 m={1}
                 color={"gray.800"}
               >
-                500/500
+                {remainingChar}/500
               </Text>
 
               <Input
