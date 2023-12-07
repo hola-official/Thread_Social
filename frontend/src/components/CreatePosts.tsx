@@ -83,7 +83,7 @@ const CreatePosts = () => {
               <Flex mt={'full'} position={'relative'}>
                 <Image
                   src={imgUrl}
-                  alt="select image"
+                  alt="select img"
                   style={{
                     width: "100%"
                   }} />
