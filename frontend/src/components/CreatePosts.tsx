@@ -50,6 +50,7 @@ const CreatePosts = () => {
                 onChange={handleTextChange}
                 value={postText}
               />
+              <Text></Text>
             </FormControl>
           </ModalBody>
 
