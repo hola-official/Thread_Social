@@ -16,6 +16,7 @@ import {
   Input,
   Flex,
   Image,
+  CloseButton,
 } from "@chakra-ui/react";
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
@@ -87,6 +88,9 @@ const CreatePosts = () => {
                   style={{
                     width: "100%"
                   }} />
+                  <CloseButton onClick={() => {
+                    setImgUrl('');
+                  }}/>
 
               </Flex>
             )}
