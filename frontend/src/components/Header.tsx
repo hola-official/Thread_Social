@@ -2,6 +2,7 @@ import React from "react"
 import { useRecoilValue } from "recoil"
 import { AiFillHome } from 'react-icons/ai'
 import { Link as RouterLink } from "react-router-dom"
+// import RxAvartar from './RxAvatar'
 import { Flex, Image, Link, useColorMode } from "@chakra-ui/react"
 
 
