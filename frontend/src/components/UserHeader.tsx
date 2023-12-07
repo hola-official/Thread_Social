@@ -100,8 +100,6 @@ const UserHeader = ({ user }) => {
                     )}
                     {!user.profilePic && (
                         <Avatar
-                            name={user.name}
-                            src="/avatar.png"
                             size={{ base: "md", md: "xl" }}
                         />
                     )}
