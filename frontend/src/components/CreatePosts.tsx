@@ -26,60 +26,65 @@ import useShowToast from "../hooks/useShowToast";
 import { useParams } from "react-router-dom";
 import postsAtom from "../atoms/postsAtom";
 
-const MAX_CHAR = 500
+const MAX_CHAR = 500;
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState("");
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const imageRef = useRef(null);
-  const [remainingChar, setRemainingChar] = useState(MAX_CHAR)
-  const user = useRecoilValue(userAtom)
-  const showToast = useShowToast()
-  const [posts, setPosts] = useRecoilState(postsAtom)
-  const { username } = useParams()
+  const [remainingChar, setRemainingChar] = useState(MAX_CHAR);
+  const user = useRecoilValue(userAtom);
+  const showToast = useShowToast();
+  const [posts, setPosts] = useRecoilState(postsAtom);
+  const { username } = useParams();
 
   const handleTextChange = (e) => {
     const inputText = e.target.value;
     if (inputText.length > MAX_CHAR) {
-      const truncatedText = inputText.slice(0, MAX_CHAR)
-      setPostText(truncatedText)
-      setRemainingChar(0)
+      const truncatedText = inputText.slice(0, MAX_CHAR);
+      setPostText(truncatedText);
+      setRemainingChar(0);
     } else {
-      setPostText(inputText)
-      setRemainingChar(MAX_CHAR - inputText.length)
+      setPostText(inputText);
+      setRemainingChar(MAX_CHAR - inputText.length);
     }
-
   };
 
   const handleCreatePost = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const res = await fetch('/api/posts/create', {
+      const res = await fetch("/api/posts/create", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ postedBy: user._id, text: postText, img: imgUrl })
-      })
-      const data = await res.json()
+        body: JSON.stringify({
+          postedBy: user._id,
+          text: postText,
+          img: imgUrl,
+        }),
+      });
+      const data = await res.json();
       if (data.error) {
-        showToast("Error", data.error, "error")
+        showToast("Error", data.error, "error");
       }
-      console.log(data)
-      showToast("Success", "post created successfully", "success")
+      console.log(data);
+      showToast("Success", "post created successfully", "success");
       if (username === user.username) {
-        setPosts([data, ...posts])
+        setPosts([data, ...posts]);
       }
 
-      onClose()
+      onClose();
+      setPostText("");
+      setImgUrl("");
     } catch (error) {
-      showToast("Error", error, "error")
+      showToast("Error", error, "error");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
   return (
     <>
       <Button
@@ -152,7 +157,12 @@ const CreatePosts = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleCreatePost} isLoading={loading}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={handleCreatePost}
+              isLoading={loading}
+            >
               Post
             </Button>
           </ModalFooter>
