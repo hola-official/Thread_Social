@@ -12,6 +12,7 @@ import {
   ModalCloseButton,
   FormControl,
   Textarea,
+  Text,
 } from "@chakra-ui/react";
 
 const CreatePosts = () => {
@@ -50,7 +51,10 @@ const CreatePosts = () => {
                 onChange={handleTextChange}
                 value={postText}
               />
-              <Text></Text>
+
+              <Text fontSize={'xs'}>
+                  500/500
+              </Text>
             </FormControl>
           </ModalBody>
 
