@@ -32,7 +32,7 @@ const CreatePosts = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             Text
