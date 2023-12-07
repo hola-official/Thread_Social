@@ -31,7 +31,7 @@ export default function UpdateProfilePage() {
   const fileRef = useRef(null)
   const { handleImageChange, imgUrl } = usePreviewImg()
   const showToast = useShowToast();
-  const [updating, setUpdating] = useState()
+  const [updating, setUpdating] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();

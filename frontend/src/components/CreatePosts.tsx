@@ -21,15 +21,22 @@ import {
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
 
+const MAX_CHAR = 500
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const finalRef = React.useRef(null);
   const [postText, setPostText] = useState("");
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
-  const [loading, setLoading] = useState()
+  const [loading, setLoading] = useState(false)
   const imageRef = useRef(null);
 
-  const handleTextChange = () => {
+  const handleTextChange = (e) => {
+    const inputText = e.target.value;
+    if(inputText.length > MAX_CHAR) {
+      const truncatedText = inputText.slice(0, MAX_CHAR)
+      setPostText(truncatedText)
+      setReminingChar(0)
+    }
 
   };
 
