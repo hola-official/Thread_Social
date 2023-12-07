@@ -26,6 +26,8 @@ const UserPage = () => {
       } catch (error) {
         showToast("Error", error, "error")
 
+      } finally {
+        setLoading(false)
       }
     }
     getUser();
