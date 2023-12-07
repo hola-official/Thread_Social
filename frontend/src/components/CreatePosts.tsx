@@ -30,7 +30,7 @@ const CreatePosts = () => {
 
   const handleTextChange = async () => {
     try {
-    } catch (error) {}
+    } catch (error) { }
   };
   return (
     <>
