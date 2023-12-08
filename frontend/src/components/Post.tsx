@@ -7,22 +7,27 @@ import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
   const showToast = useShowToast()
+  const [users, setUsers] = useState(null)
   useEffect(() => {
     const getUser = async  () => {
       try {
-        const res = await fetch(`/api/users/profile${postedBy}`)
+        const res = await fetch(`/api/users/profile/${postedBy}`)
         const data = await res.json()
         console.log(data);
         if(data.error) {
           showToast("Error", data.error, "error")
+          return;
         }
-        
+        setUsers(data)
       } catch (error) {
         showToast("Error", error, "error")
+      } finally {
+        setUsers(null)
       }
     }
+
     getUser()
-  }, [postedBy])
+  }, [postedBy, showToast])
   
 
   const [liked, setLiked] = useState(false)
@@ -30,7 +35,7 @@ const Post = ({ post, postedBy }) => {
     <Link to={"/:aliumusa/post/:1"}>
       <Flex gap={3} mb={4} py={5}>
         <Flex alignItems={'center'} flexDir={"column"}>
-          <Avatar src="/directorPro.jpeg" size={"md"} name="Mark Zuckerberg" />
+          <Avatar src={users.profilePic} size={"md"} name={users.name} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2} ></Box>
           <Box pos={"relative"} w={"full"}>
             <Avatar
@@ -52,9 +57,9 @@ const Post = ({ post, postedBy }) => {
               padding={'2px'}
             />
             <Avatar
-              src="/post1.png"
+              src={postedBy.profilePic}
               size={"xs"}
-              name="Mark Danfo Driver"
+              name={postedBy.name}
               pos={"absolute"}
               bottom={'0'}
               left={'4px'}
@@ -65,7 +70,7 @@ const Post = ({ post, postedBy }) => {
         <Flex flex={1} flexDir={'column'} gap={2}>
           <Flex justifyContent={'space-between'} w={'full'} flex={1}>
             <Flex alignItems={'center'} w={'full'}>
-              <Text>Aliu Musa</Text>
+              <Text>{users.username}</Text>
               <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
