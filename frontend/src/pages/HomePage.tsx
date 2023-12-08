@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Flex, Spinner, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
+import Post from "../components/Post";
 
 const HomePage = () => {
   const [posts, setPosts] = useState([])
@@ -44,7 +45,7 @@ const HomePage = () => {
         </Flex>
       )}
 
-      {posts.map(post => <Posts />)}
+      {posts.map(post => <Post key={post._id} post={post} postedBy={post.postedBy} />)}
     </>
   )
 };
