@@ -22,6 +22,7 @@ import useShowToast from "../hooks/useShowToast";
 import userAtom from "../atoms/userAtom";
 
 export default function LoginCard() {
+  const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom);
 
@@ -42,18 +43,21 @@ export default function LoginCard() {
         body: JSON.stringify(inputs),
       });
       const data = await res.json();
-      
-      
+      console.log(data);
+
+      setLoading(true)
+
       if (data.error) {
         showToast("Error", data.error, "error");
         return;
       }
-      console.log(data);
-      
+
       localStorage.setItem("user-threads", JSON.stringify(data));
       setUser(data);
     } catch (error) {
       showToast("Error", error, "error");
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -119,7 +123,7 @@ export default function LoginCard() {
                 }}
                 onClick={handleLogin}
               >
-                Login
+                {!loading ? "Login in..." : "Login"}
               </Button>
             </Stack>
             <Stack pt={6}>
