@@ -11,11 +11,18 @@ const Post = ({ post, postedBy }) => {
     const getUser = async  () => {
       try {
         const res = await fetch(`/api/users/profile${postedBy}`)
+        const data = await res.json()
+        console.log(data);
+        if(data.error) {
+          showToast("Error", data.error, "error")
+        }
+        
       } catch (error) {
         showToast("Error", error, "error")
       }
     }
-  }, [])
+    getUser()
+  }, [postedBy])
   
 
   const [liked, setLiked] = useState(false)
