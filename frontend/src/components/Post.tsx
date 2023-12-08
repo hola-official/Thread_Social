@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Flex, Avatar, Box, Image, Text, Menu, MenuButton, MenuList, MenuGroup, MenuItem, MenuDivider } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
+import { formatDistanceToNow } from 'date-fns'
 import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
 
   const [liked, setLiked] = useState(false)
   const [user, setUser] = useState(null)
+  const navigate = useNavigate()
 
   const showToast = useShowToast()
 
@@ -40,7 +42,10 @@ const Post = ({ post, postedBy }) => {
     <Link to={`/${user.username}/post/${post._id}`}>
       <Flex gap={3} mb={4} py={5}>
         <Flex alignItems={'center'} flexDir={"column"}>
-          <Avatar src={user.profilePic} size={"md"} name={`${user.name} ${user.username}`} />
+          <Avatar src={user.profilePic} size={"md"} name={`${user.name} ${user.username}`} onClick={(e) => {
+            e.preventDefault()
+            navigate(`/${user.username}`)
+          }} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2} ></Box>
           <Box pos={"relative"} w={"full"}>
             {post.replies.length === 0 && <Text textAlign={'center'}>😒</Text>}
@@ -54,6 +59,10 @@ const Post = ({ post, postedBy }) => {
                 top={'0'}
                 left={'15px'}
                 padding={'2px'}
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate(`/${user.username}`)
+                }}
               />
             )}
 
@@ -81,12 +90,15 @@ const Post = ({ post, postedBy }) => {
         </Flex>
         <Flex flex={1} flexDir={'column'} gap={2}>
           <Flex justifyContent={'space-between'} w={'full'} flex={1}>
-            <Flex alignItems={'center'} w={'full'}>
+            <Flex alignItems={'center'} w={'full'} onClick={(e) => {
+              e.preventDefault()
+              navigate(`/${user.username}`)
+            }}>
               <Text>{user.username}</Text>
               <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
-              <Text color={'gray.light'}>{post.createdAt}</Text>
+              <Text color={'gray.light'}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
               <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={'pointer'} />
