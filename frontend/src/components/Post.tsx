@@ -15,12 +15,12 @@ const Post = ({ post, postedBy }) => {
 
 
   useEffect(() => {
-    const getUser = async  () => {
+    const getUser = async () => {
       try {
         const res = await fetch(`/api/users/profile/${postedBy}`)
         const data = await res.json()
         console.log(data);
-        if(data.error) {
+        if (data.error) {
           showToast("Error", data.error, "error")
           return;
         }
@@ -28,14 +28,14 @@ const Post = ({ post, postedBy }) => {
       } catch (error) {
         showToast("Error", error, "error")
         setUser(null)
-      } 
+      }
     }
 
     getUser()
   }, [postedBy, showToast])
 
   if (!user) return null
-  
+
   return (
     <Link to={`/${user.username}/post/${post._id}`}>
       <Flex gap={3} mb={4} py={5}>
@@ -43,34 +43,39 @@ const Post = ({ post, postedBy }) => {
           <Avatar src={user.profilePic} size={"md"} name={`${user.name} ${user.username}`} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2} ></Box>
           <Box pos={"relative"} w={"full"}>
-            {post.replies[0]}
-            <Avatar
-              src='/post1.png'
-              size={"xs"}
-              name='lami'
-              pos={"absolute"}
-              top={'0'}
-              left={'15px'}
-              padding={'2px'}
-            />
-            <Avatar
-              src="/post1.png"
+            {post.replies[0] && (
+
+              <Avatar
+                src={post.replies[0].userProfilePic}
+                size={"xs"}
+                name={post.replies}
+                pos={"absolute"}
+                top={'0'}
+                left={'15px'}
+                padding={'2px'}
+              />
+            )}
+
+            {post.replies[1] && (<Avatar
+              src={post.replies[1].userProfilePic}
               size={"xs"}
               name="Bella Shmurda"
               pos={"absolute"}
               bottom={'0'}
               right={'-5px'}
               padding={'2px'}
-            />
-            <Avatar
-              src='{user.profilePic}'
+            />)}
+
+            {post.replies[2] && (<Avatar
+              src={post.replies[2].userProfilePic}
               size={"xs"}
               name='{user.name}'
               pos={"absolute"}
               bottom={'0'}
               left={'4px'}
               padding={'2px'}
-            />
+            />)}
+
           </Box>
         </Flex>
         <Flex flex={1} flexDir={'column'} gap={2}>
