@@ -6,8 +6,14 @@ import Actions from "./Actions";
 import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
+
+  const [liked, setLiked] = useState(false)
+  const [user, setUser] = useState(null)
+
   const showToast = useShowToast()
-  const [users, setUsers] = useState(null)
+
+
+
   useEffect(() => {
     const getUser = async  () => {
       try {
@@ -18,30 +24,30 @@ const Post = ({ post, postedBy }) => {
           showToast("Error", data.error, "error")
           return;
         }
-        setUsers(data)
+        setUser(data)
       } catch (error) {
         showToast("Error", error, "error")
-      } finally {
-        setUsers(null)
-      }
+        setUser(null)
+      } 
     }
 
     getUser()
   }, [postedBy, showToast])
-  
 
-  const [liked, setLiked] = useState(false)
+  if (!user) return null
+  
   return (
-    <Link to={"/:aliumusa/post/:1"}>
+    <Link to={`/${user.username}/post/${post._id}`}>
       <Flex gap={3} mb={4} py={5}>
         <Flex alignItems={'center'} flexDir={"column"}>
-          <Avatar src={users.profilePic} size={"md"} name={users.name} />
+          <Avatar src={user.profilePic} size={"md"} name={`${user.name} ${user.username}`} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2} ></Box>
           <Box pos={"relative"} w={"full"}>
+            {post.replies[0]}
             <Avatar
-              src="/post1.png"
+              src='/post1.png'
               size={"xs"}
-              name="Wale Oloyin"
+              name='lami'
               pos={"absolute"}
               top={'0'}
               left={'15px'}
@@ -50,16 +56,16 @@ const Post = ({ post, postedBy }) => {
             <Avatar
               src="/post1.png"
               size={"xs"}
-              name="Bella Sh,urda"
+              name="Bella Shmurda"
               pos={"absolute"}
               bottom={'0'}
               right={'-5px'}
               padding={'2px'}
             />
             <Avatar
-              src={postedBy.profilePic}
+              src='{user.profilePic}'
               size={"xs"}
-              name={postedBy.name}
+              name='{user.name}'
               pos={"absolute"}
               bottom={'0'}
               left={'4px'}
@@ -70,7 +76,7 @@ const Post = ({ post, postedBy }) => {
         <Flex flex={1} flexDir={'column'} gap={2}>
           <Flex justifyContent={'space-between'} w={'full'} flex={1}>
             <Flex alignItems={'center'} w={'full'}>
-              <Text>{users.username}</Text>
+              <Text>{user.username}</Text>
               <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
