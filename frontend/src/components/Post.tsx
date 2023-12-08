@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Flex, Avatar, Box, Image, Text, Menu, MenuButton, MenuList, MenuGroup, MenuItem, MenuDivider } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
 
 const Post = ({ post, postedBy }) => {
+
+  useEffect(() => {
+    
+  }, [])
+  
 
   const [liked, setLiked] = useState(false)
   return (
