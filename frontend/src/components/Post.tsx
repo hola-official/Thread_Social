@@ -3,15 +3,16 @@ import { Flex, Avatar, Box, Image, Text, Menu, MenuButton, MenuList, MenuGroup, 
 import { Link } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
+import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
-
+  const showToast = useShowToast()
   useEffect(() => {
-    const getUser = asyc  () => {
+    const getUser = async  () => {
       try {
-        
+        const res = await fetch(`/api/users/profile${postedBy}`)
       } catch (error) {
-        
+        showToast("Error", error, "error")
       }
     }
   }, [])
