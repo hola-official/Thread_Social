@@ -7,7 +7,13 @@ import Actions from "./Actions";
 const Post = ({ post, postedBy }) => {
 
   useEffect(() => {
-    
+    const getUser = asyc  () => {
+      try {
+        
+      } catch (error) {
+        
+      }
+    }
   }, [])
   
 
@@ -55,7 +61,7 @@ const Post = ({ post, postedBy }) => {
               <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
-              <Text color={'gray.light'}>{postTime}</Text>
+              <Text color={'gray.light'}>{post.createdAt}</Text>
               <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={'pointer'} />
@@ -74,18 +80,18 @@ const Post = ({ post, postedBy }) => {
               </Menu>
             </Flex>
           </Flex>
-          <Text>{postTitle}</Text>
-          {postImg && (<Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
-            <Image src={postImg} width={'full'} />
+          <Text>{post.text}</Text>
+          {post.img && (<Box borderRadius={6} overflow={'hidden'} border={'1px solid'} borderColor={'gray.light'}>
+            <Image src={post.img} width={'full'} />
           </Box>)}
 
           <Flex>
             <Actions liked={liked} setLiked={setLiked} />
           </Flex>
           <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
-            <Text>{replies} replies</Text>
+            <Text>{post.replies.length} replies</Text>
             <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
-            <Text>{21 + (liked ? 1 : 0)} likes</Text>
+            <Text>{post.likes.length} likes</Text>
           </Flex>
         </Flex>
       </Flex>
