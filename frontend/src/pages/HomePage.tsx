@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 
 const HomePage = () => {
-  const [post, setPost] = useState([])
+  const [posts, setPosts] = useState([])
   const showToast = useShowToast();
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,8 @@ const HomePage = () => {
           return;
         }
         console.log(data);
-        
+        setPosts(data)
+
       } catch (error) {
         console.log(error);
 
@@ -31,19 +32,21 @@ const HomePage = () => {
     getFeedPosts();
   }, [showToast]);
 
-return (
-  <>
-  {!loading && post.length === 0 && (
-    <Text>Pls follow a user to see feed posts</Text>
-  )}
-  
-  {loading && (
-    <Flex justifyContent={'center'}>
-      <Spinner size={'xl'}/>
-    </Flex>
-  )}
-  </>
-)
+  return (
+    <>
+      {!loading && posts.length === 0 && (
+        <Text>Pls follow a user to see feed posts</Text>
+      )}
+
+      {loading && (
+        <Flex justifyContent={'center'}>
+          <Spinner size={'xl'} />
+        </Flex>
+      )}
+
+      {posts.map(post => <Posts />)}
+    </>
+  )
 };
 
 export default HomePage;
