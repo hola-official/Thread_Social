@@ -34,6 +34,7 @@ export default function LoginCard() {
   const setUser = useSetRecoilState(userAtom);
 
   const handleLogin = async () => {
+    setLoading(true)
     try {
       const res = await fetch("/api/users/login", {
         method: "POST",
@@ -45,7 +46,6 @@ export default function LoginCard() {
       const data = await res.json();
       console.log(data);
 
-      setLoading(true)
 
       if (data.error) {
         showToast("Error", data.error, "error");
@@ -114,7 +114,8 @@ export default function LoginCard() {
             </FormControl>
             <Stack spacing={10} pt={2}>
               <Button
-                loadingText="Submitting"
+                isLoading={loading}
+                loadingText="Login in..."
                 size="lg"
                 bg={useColorModeValue("gray.600", "gray.700")}
                 color={"white"}
@@ -123,7 +124,8 @@ export default function LoginCard() {
                 }}
                 onClick={handleLogin}
               >
-                {!loading ? "Login in..." : "Login"}
+                {/* {!loading ? "Login" : "Login in..."} */}
+                Login
               </Button>
             </Stack>
             <Stack pt={6}>
