@@ -43,12 +43,13 @@ const Post = ({ post, postedBy }) => {
           <Avatar src={user.profilePic} size={"md"} name={`${user.name} ${user.username}`} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2} ></Box>
           <Box pos={"relative"} w={"full"}>
+            {post.replies.length === 0 && <Text textAlign={'center'}>😒</Text>}
             {post.replies[0] && (
 
               <Avatar
                 src={post.replies[0].userProfilePic}
                 size={"xs"}
-                name={post.replies}
+                name={post.replies[0].username}
                 pos={"absolute"}
                 top={'0'}
                 left={'15px'}
@@ -59,7 +60,7 @@ const Post = ({ post, postedBy }) => {
             {post.replies[1] && (<Avatar
               src={post.replies[1].userProfilePic}
               size={"xs"}
-              name="Bella Shmurda"
+              name={post.replies[0].username}
               pos={"absolute"}
               bottom={'0'}
               right={'-5px'}
@@ -69,7 +70,7 @@ const Post = ({ post, postedBy }) => {
             {post.replies[2] && (<Avatar
               src={post.replies[2].userProfilePic}
               size={"xs"}
-              name='{user.name}'
+              name={post.replies[0].username}
               pos={"absolute"}
               bottom={'0'}
               left={'4px'}
