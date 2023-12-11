@@ -1,4 +1,20 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
@@ -11,6 +27,7 @@ const Actions = ({ post: post_ }) => {
   const [isLiking, setIsLiking] = useState(false);
   const [reply, setReply] = useState("");
   const [isReplying, setIsReplying] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const showToast = useShowToast();
 
   const handleLikeAndUnlike = async () => {
@@ -76,7 +93,7 @@ const Actions = ({ post: post_ }) => {
 
       const data = await res.json();
       console.log(data);
-      setPost({ ...post, replies: [...post.replies, data] })
+      setPost({ ...post, replies: [...post.replies, data] });
     } catch (error) {
       showToast("Error", error.message, "error");
     }
@@ -134,6 +151,27 @@ const Actions = ({ post: post_ }) => {
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
         <Text>{post.likes.length} likes</Text>
       </Flex>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create your account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>First name</FormLabel>
+              <Input placeholder="First name" />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3}>
+              Save
+            </Button>
+            <Button onClick={onClose}>Cancel</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 };
