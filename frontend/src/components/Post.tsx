@@ -50,20 +50,23 @@ const Post = ({ post, postedBy }) => {
   }, [postedBy, showToast]);
 
   const handleDeletePost = async (e) => {
-    e.preventDefault();
-    if (!window.confirm("Are you sure you want to delete this post?"))
-      try {
+    try {
+      e.preventDefault();
+      if (!window.confirm("Are you sure you want to delete this post?")) return;
+
         const res = await fetch(`/api/posts/${post._id}`, {
           method: "DELETE",
         });
 
-        const data = await res.json();
-        if (data.error) {
-          showToast("Error", data.error, "error");
-          return;
-        }
-        showToast("Success", "Post deleted", "success");
-      } catch (error) { }
+      const data = await res.json();
+      if (data.error) {
+        showToast("Error", data.error, "error");
+        return;
+      }
+      showToast("Success", "Post deleted", "success");
+    } catch (error) {
+      showToast("Error", error, "error")
+    }
   };
 
   if (!user) return null;
