@@ -76,6 +76,7 @@ const Actions = ({ post: post_ }) => {
 
       const data = await res.json();
       console.log(data);
+      setPost({...post, replies: [...post.replies, data]})
     } catch (error) {
       showToast("Error", error.message, "error");
     }
