@@ -13,6 +13,14 @@ const Actions = ({ post: post_ }) => {
   const [isReplying, setIsReplying] = useState(false)
   const showToast = useShowToast();
 
+  const handleReply = async () => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
+
   const handleLikeAndUnlike = async () => {
     if (!user)
       return showToast(
