@@ -166,9 +166,8 @@ const Actions = ({ post: post_ }) => {
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3}>
-              Save
+              Reply
             </Button>
-            <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
