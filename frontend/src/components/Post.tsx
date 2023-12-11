@@ -98,7 +98,7 @@ const Post = ({ post, postedBy }) => {
               <Image src="/verified.png" ml={1} w={4} h={4} />
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
-              <Text color={'gray.light'}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
+              <Text fontSize={'xs'} textAlign={'right'} color={'gray.light'}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
               <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={'pointer'} />
