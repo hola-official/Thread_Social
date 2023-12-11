@@ -66,6 +66,12 @@ const Actions = ({ post: post_ }) => {
       if(isReplying) return;
       setIsReplying(true)
     try {
+      const res = await fetch(`/api/posts/reply${post._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
     } catch (error) {
       showToast("Error", error.message, "error")
     }
