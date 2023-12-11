@@ -123,7 +123,7 @@ const Post = ({ post, postedBy }) => {
           </Box>)}
 
           <Flex>
-            <Actions />
+            <Actions post={post} />
           </Flex>
          
         </Flex>
