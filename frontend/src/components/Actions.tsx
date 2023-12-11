@@ -12,6 +12,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
@@ -25,6 +26,7 @@ const Actions = ({ post: post_ }) => {
   const [isLiking, setIsLiking] = useState(false);
   const [reply, setReply] = useState("");
   const [isReplying, setIsReplying] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const showToast = useShowToast();
 
   const handleLikeAndUnlike = async () => {
@@ -93,7 +95,7 @@ const Actions = ({ post: post_ }) => {
       setPost({ ...post, replies: [...post.replies, data] });
       showToast("Success", "Reply posted successfully", "success")
       onClose()
-      setPost('')
+      setReply('')
     } catch (error) {
       showToast("Error", error.message, "error");
     } finally {
@@ -134,6 +136,7 @@ const Actions = ({ post: post_ }) => {
           role="img"
           viewBox="0 0 24 24"
           width="20"
+          // onClick={handleReply}
         >
           <title>Reply</title>
           <path
