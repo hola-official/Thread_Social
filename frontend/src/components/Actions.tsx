@@ -27,7 +27,7 @@ const Actions = ({ post: post_ }) => {
   const [reply, setReply] = useState("");
   const [isReplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleLikeAndUnlike = async () => {
     if (!user)
@@ -93,9 +93,9 @@ const Actions = ({ post: post_ }) => {
       const data = await res.json();
       console.log(data);
       setPost({ ...post, replies: [...post.replies, data] });
-      showToast("Success", "Reply posted successfully", "success")
-      onClose()
-      setReply('')
+      showToast("Success", "Reply posted successfully", "success");
+      onClose();
+      setReply("");
     } catch (error) {
       showToast("Error", error.message, "error");
     } finally {
@@ -164,7 +164,11 @@ const Actions = ({ post: post_ }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <Input placeholder="Reply goes here..." value={reply} onChange={(e) => setReply(e.target.value)} />
+              <Input
+                placeholder="Reply goes here..."
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
+              />
             </FormControl>
           </ModalBody>
 
