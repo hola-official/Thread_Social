@@ -2,11 +2,22 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
+import useShowToast from "../hooks/useShowToast";
 
 const Actions = ({ post: post_ }) => {
   const user = useRecoilValue(userAtom);
   const [post, setPost] = useState(post_);
   const [liked, setLiked] = useState(post.likes.includes(user?._id));
+  const showToast = useShowToast()
+
+  const handleLikeAndUnlike = async () => {
+    if(!user) return ("Error", "You must be logged in to like a post", "error")
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <Flex flexDir={"column"}>
