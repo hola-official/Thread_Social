@@ -5,12 +5,17 @@ import { BsThreeDots } from "react-icons/bs";
 import Actions from "./Actions";
 import { formatDistanceToNow } from 'date-fns'
 import useShowToast from "../hooks/useShowToast";
+import { DeleteIcon } from "@chakra-ui/icons";
+import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
 
 const Post = ({ post, postedBy }) => {
 
   const [liked, setLiked] = useState(false)
   const [user, setUser] = useState(null)
   const navigate = useNavigate()
+  const currentUser = useRecoilValue(userAtom);
+
 
   const showToast = useShowToast()
 
@@ -35,6 +40,14 @@ const Post = ({ post, postedBy }) => {
 
     getUser()
   }, [postedBy, showToast])
+
+  const handleDeletePost = async () => {
+    try {
+
+    } catch (error) {
+
+    }
+  }
 
   if (!user) return null
 
@@ -99,6 +112,7 @@ const Post = ({ post, postedBy }) => {
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
               <Text fontSize={'xs'} textAlign={'right'} color={'gray.light'}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
+              {currentUser?._id === user._d && <DeleteIcon onClick={handleDeletePost} />}
               <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={'pointer'} />
@@ -125,7 +139,7 @@ const Post = ({ post, postedBy }) => {
           <Flex gap={3} my={1}>
             <Actions post={post} />
           </Flex>
-         
+
         </Flex>
       </Flex>
     </Link>
