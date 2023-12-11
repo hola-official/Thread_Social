@@ -159,8 +159,7 @@ const Actions = ({ post: post_ }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>First name</FormLabel>
-              <Input placeholder="First name" />
+              <Input placeholder="Reply goes here..." />
             </FormControl>
           </ModalBody>
 
