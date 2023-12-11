@@ -11,7 +11,7 @@ const Actions = ({ post: post_ }) => {
   const showToast = useShowToast()
 
   const handleLikeAndUnlike = async () => {
-    if(!user) return ("Error", "You must be logged in to like a post", "error")
+    if(!user) return showToast("Error", "You must be logged in to like a post", "error")
     try {
       
     } catch (error) {
