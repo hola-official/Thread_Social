@@ -72,6 +72,8 @@ const Actions = ({ post: post_ }) => {
           "Content-Type": "application/json"
         }
       })
+      
+      const data = await res.json()
     } catch (error) {
       showToast("Error", error.message, "error")
     }
