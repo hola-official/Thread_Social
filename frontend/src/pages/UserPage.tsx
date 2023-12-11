@@ -34,6 +34,14 @@ const UserPage = () => {
     getUser();
   }, [username, showToast])
 
+  const getPosts = async () => {
+    try {
+
+    } catch (error) {
+      showToast("Error", error, "error")
+    }
+  }
+
   if (!user && loading) {
     return (
       <Flex justifyContent={'center'} >
