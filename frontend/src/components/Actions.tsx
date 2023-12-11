@@ -21,30 +21,29 @@ const Actions = ({ post: post_ }) => {
       const res = await fetch(`/api/posts/like/${post._id}`, {
         method: "PUT",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-      })
+      });
 
-      const data = await res.json()
+      const data = await res.json();
       console.log(data);
       if (!liked) {
         // add the id of the user to the likes array
-        setPost({ ...post, likes: [...post.likes, user._id] })
+        setPost({ ...post, likes: [...post.likes, user._id] });
       } else {
         // remove the id of the user from the likes array
-        setPost({ ...post, likes: post.likes.filter((id) => id !== user._id) })
+        setPost({ ...post, likes: post.likes.filter((id) => id !== user._id) });
       }
 
-      setLiked(!liked)
+      setLiked(!liked);
 
       // if(post) {
       //   showToast("Success", `post liked`, "success")
       // } else {
       //   showToast("Success", 'Post unliked successfully', "success")
       // }
-
     } catch (error) {
-      showToast("Error", error.message, "error")
+      showToast("Error", error.message, "error");
     }
   };
 
@@ -91,34 +90,6 @@ const Actions = ({ post: post_ }) => {
             strokeWidth="2"
           ></path>
         </svg>
-        
-        <svg
-          aria-label="Share"
-          fill="currentColor"
-          height="20"
-          role="img"
-          viewBox="0 0 24 24"
-          width="20"
-        >
-          <title>Share</title>
-          <line
-            fill="none"
-            stroke="currentColor"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            x1="22"
-            x2="9.218"
-            y1="3"
-            y2="10.083"
-          ></line>
-          <polygon
-            fill="none"
-            points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-            stroke="currentColor"
-            strokeLinejoin="round"
-            strokeWidth="2"
-          ></polygon>
-        </svg>
       </Flex>
 
       <Flex color={"gray.light"} gap={2} fontSize={"sm"} alignItems={"center"}>
@@ -133,11 +104,49 @@ const Actions = ({ post: post_ }) => {
 export default Actions;
 
 const RepostSVG = () => {
-  return(
-    
-  )
-}
+  return (
+    <svg
+      aria-label="Repost"
+      fill="currentColor"
+      height="20"
+      role="img"
+      viewBox="0 0 24 24"
+      width="20"
+    >
+      <title>Repost</title>
+      <path d="M19.998 9.497a1 1 0 0 0-1 1v4.228a3.274 3.274 0 0 1-3.27 3.27h-5.313l1.791-1.787a1 1 0 0 0-1.412-1.416L7.29 18.287a1.004 1.004 0 0 0-.294.707v.001c0 .023.012.042.013.065a.923.923 0 0 0 .281.643l3.502 3.504a1 1 0 0 0 1.414-1.414l-1.797-1.798h5.318a5.276 5.276 0 0 0 5.27-5.27v-4.228a1 1 0 0 0-1-1Zm-6.41-3.496-1.795 1.795a1 1 0 1 0 1.414 1.414l3.5-3.5a1.003 1.003 0 0 0 0-1.417l-3.5-3.5a1 1 0 0 0-1.414 1.414l1.794 1.794H8.27A5.277 5.277 0 0 0 3 9.271V13.5a1 1 0 0 0 2 0V9.271a3.275 3.275 0 0 1 3.271-3.27Z"></path>
+    </svg>
+  );
+};
 
-const ShareSVG = () {
-
-}
+const ShareSVG = () => {
+  return (
+    <svg
+      aria-label="Share"
+      fill="currentColor"
+      height="20"
+      role="img"
+      viewBox="0 0 24 24"
+      width="20"
+    >
+      <title>Share</title>
+      <line
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="22"
+        x2="9.218"
+        y1="3"
+        y2="10.083"
+      ></line>
+      <polygon
+        fill="none"
+        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      ></polygon>
+    </svg>
+  );
+};
