@@ -27,9 +27,9 @@ const Actions = ({ post: post_ }) => {
 
       const data = await res.json()
       console.log(data);
-      if(data.error) {
-        showToast("Error", data.error, "error");
-        return;
+      if(!liked) {
+        // add the id of the user to the likes array
+        setPost({...post, likes: [...post.likes, user._id]})
       }
 
       if(post) {
