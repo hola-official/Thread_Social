@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 
-const Actions = ({ liked, setLiked }) => {
+const Actions = ({ post: post_ }) => {
   return (
     <>
       <Flex cursor={"pointer"} gap={3} my={2} onClick={(e) => e.preventDefault()}>
