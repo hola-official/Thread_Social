@@ -63,16 +63,17 @@ const Actions = ({ post: post_ }) => {
         "error"
       );
 
-      if(isReplying) return;
-      setIsReplying(true)
+    if (isReplying) return;
+    setIsReplying(true)
     try {
       const res = await fetch(`/api/posts/reply${post._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify({ text: reply })
       })
-      
+
       const data = await res.json()
     } catch (error) {
       showToast("Error", error.message, "error")
