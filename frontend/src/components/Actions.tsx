@@ -91,7 +91,9 @@ const Actions = ({ post: post_ }) => {
             strokeWidth="2"
           ></polygon>
         </svg>
-        <Flex
+      </Flex>
+
+      <Flex
           color={"gray.light"}
           gap={2}
           fontSize={"sm"}
@@ -101,7 +103,7 @@ const Actions = ({ post: post_ }) => {
           <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
           <Text>{post.likes.length} likes</Text>
         </Flex>
-      </Flex>
+        
     </Flex>
   );
 };
