@@ -4,11 +4,17 @@ import React from "react";
 const Actions = ({ post: post_ }) => {
   return (
     <>
-      <Flex cursor={"pointer"} gap={3} my={2} onClick={(e) => e.preventDefault()}>
+      <Flex
+        cursor={"pointer"}
+        gap={3}
+        my={2}
+        onClick={(e) => e.preventDefault()}
+        flexDir={"column"}
+      >
         <svg
           aria-label="Like"
-          fill={liked ? 'rgb(237,73,86' : "transparent"}
-          color={liked ? 'rgb(237,73,86' : ''}
+          fill={liked ? "rgb(237,73,86" : "transparent"}
+          color={liked ? "rgb(237,73,86" : ""}
           height="19"
           role="img"
           viewBox="0 0 24 22"
@@ -80,7 +86,12 @@ const Actions = ({ post: post_ }) => {
             strokeWidth="2"
           ></polygon>
         </svg>
-        <Flex color={'gray.light'} gap={2} fontSize={'sm'} alignItems={'center'}>
+        <Flex
+          color={"gray.light"}
+          gap={2}
+          fontSize={"sm"}
+          alignItems={"center"}
+        >
           <Text>{post.replies.length} replies</Text>
           <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
           <Text>{post.likes.length} likes</Text>
