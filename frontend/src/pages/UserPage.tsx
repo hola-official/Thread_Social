@@ -4,6 +4,7 @@ import UserPosts from "../components/UserPosts";
 import { useParams } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 import { Flex, Spinner } from "@chakra-ui/react";
+import Post from "../components/Post";
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -63,9 +64,14 @@ const UserPage = () => {
     <>
       <UserHeader user={user} />
       {!fetchingPosts && posts.length === 0 && <h1>User has no posts</h1>}
+
       {fetchingPosts && (<Flex justifyContent={'center'} my={12} >
         <Spinner size={'xl'} />
       </Flex>)}
+
+      {posts.map((post) => (
+        <Post key={post._id} post={post} postedBy={post.postedBy} />
+      ))}
       {/* <UserPosts likes={200} replies={50} postImg={'/post1.png'} postTitle={'What did you think about this guy'} postTime={'1d'} />
       <UserPosts likes={50} replies={10} postImg={'/post2.png'} postTitle={'This is great!!'} postTime={'5d'} />
       <UserPosts likes={10} replies={20} postImg={'/post3.png'} postTitle={'Wow! awesome'} postTime={'8d'} /> */}
