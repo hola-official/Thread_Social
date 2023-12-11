@@ -123,7 +123,7 @@ const Post = ({ post, postedBy }) => {
           </Box>)}
 
           <Flex>
-            <Actions liked={liked} setLiked={setLiked} />
+            <Actions />
           </Flex>
          
         </Flex>
