@@ -18,7 +18,20 @@ const Actions = ({ post: post_ }) => {
         "error"
       );
     try {
-      const res = await fetch(`/api/posts/like/${post._id}`)
+      const res = await fetch(`/api/posts/like/${post._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      })
+
+      const data = await res.json()
+      console.log(data);
+      if(data.error) {
+        showToast("Error", data.error, "error");
+        return;
+      }
+      
     } catch (error) {
       showToast("Error", error.message, "error")
     }
