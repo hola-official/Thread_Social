@@ -32,22 +32,25 @@ const UserPage = () => {
         setLoading(false);
       }
     };
+
+    const getPosts = async () => {
+      setFetchingPosts(true);
+      try {
+        const res = await fetch(`/api/posts/user/${username}`);
+        const data = await res.json();
+        console.log(data);
+        setPosts(data);
+      } catch (error) {
+        showToast("Error", error, "error");
+      } finally {
+        setFetchingPosts(false);
+      }
+    };
+    getPosts()
     getUser();
   }, [username, showToast]);
 
-  const getPosts = async () => {
-    setFetchingPosts(true);
-    try {
-      const res = await fetch(`/api/posts/user/${username}`);
-      const data = await res.json();
-      console.log(data);
-      setPosts(data);
-    } catch (error) {
-      showToast("Error", error, "error");
-    } finally {
-      setFetchingPosts(false);
-    }
-  };
+
 
   if (!user && loading) {
     return (
