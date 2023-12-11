@@ -59,11 +59,16 @@ const Actions = ({ post: post_ }) => {
     if (!user)
       return showToast(
         "Error",
-        "You must be logged in to like a post",
+        "You must be logged in to reply a post",
         "error"
       );
+
+      if(isReplying) return;
+      setIsReplying(true)
     try {
-    } catch (error) {}
+    } catch (error) {
+      showToast("Error", error.message, "error")
+    }
   };
 
   return (
