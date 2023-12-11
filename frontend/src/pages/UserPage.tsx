@@ -10,7 +10,8 @@ const UserPage = () => {
   const { username } = useParams();
   const showToast = useShowToast();
   const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState('')
+  const [posts, setPosts] = useState([]);
+  const [fetchingPosts, setFetchingPosts] = useState(false);
 
   useEffect(() => {
     const getUser = async () => {
@@ -35,6 +36,8 @@ const UserPage = () => {
   }, [username, showToast]);
 
   const getPosts = async () => {
+    if (posts) return;
+    setFetchingPosts(true);
     try {
       const res = await fetch(`/api/posts/user/${username}`);
       const data = await res.json();
@@ -42,6 +45,8 @@ const UserPage = () => {
       setPosts(data);
     } catch (error) {
       showToast("Error", error, "error");
+    } finally {
+      setFetchingPosts(false);
     }
   };
 
