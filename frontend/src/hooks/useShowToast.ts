@@ -5,7 +5,7 @@ const useShowToast = () => {
   const toast = useToast();
 
   const showToast = useCallback(
-    (title, description, status, position) => {
+    (title, description, status) => {
       toast({
         title,
         description,
