@@ -4,18 +4,17 @@ import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 
 const Actions = ({ post: post_ }) => {
-  const user = useRecoilValue(userAtom)
-  const [post, setPost] = useState(post_)
-  const [liked, setLiked] = useState(post.likes.includes(user?._id))
+  const user = useRecoilValue(userAtom);
+  const [post, setPost] = useState(post_);
+  const [liked, setLiked] = useState(post.likes.includes(user?._id));
 
   return (
-    <>
+    <Flex flexDir={"column"}>
       <Flex
         cursor={"pointer"}
         gap={3}
         my={2}
         onClick={(e) => e.preventDefault()}
-        flexDir={"column"}
       >
         <svg
           aria-label="Like"
@@ -103,7 +102,7 @@ const Actions = ({ post: post_ }) => {
           <Text>{post.likes.length} likes</Text>
         </Flex>
       </Flex>
-    </>
+    </Flex>
   );
 };
 
