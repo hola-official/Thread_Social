@@ -41,12 +41,24 @@ const Post = ({ post, postedBy }) => {
     getUser()
   }, [postedBy, showToast])
 
-  const handleDeletePost = async () => {
-    try {
+  const handleDeletePost = async (e) => {
+    e.preventDefault()
+    if (!window.confirm('Are you sure you want to delete this post?'))
+      try {
 
-    } catch (error) {
+        const res = await fetch(`/api/posts/${post._id}`,
+          {
+            method: "DELETE",
+          })
 
-    }
+          const data = await res.json()
+          if (data.error) {
+            showToast("Error", data.error, "error")
+            return;
+          }
+      } catch (error) {
+
+      }
   }
 
   if (!user) return null
