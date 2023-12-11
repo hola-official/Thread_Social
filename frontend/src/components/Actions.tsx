@@ -31,6 +31,12 @@ const Actions = ({ post: post_ }) => {
         showToast("Error", data.error, "error");
         return;
       }
+
+      if(post) {
+        showToast("Success", `post liked`, "success")
+      } else {
+        showToast("Success", 'Post unliked successfully', "success")
+      }
       
     } catch (error) {
       showToast("Error", error.message, "error")
@@ -53,7 +59,7 @@ const Actions = ({ post: post_ }) => {
           role="img"
           viewBox="0 0 24 22"
           width="20"
-          onClick={() => setLiked(!liked)}
+          onClick={handleLikeAndUnlike}
         >
           <title>Like</title>
           <path
