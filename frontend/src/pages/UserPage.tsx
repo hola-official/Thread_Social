@@ -36,7 +36,6 @@ const UserPage = () => {
   }, [username, showToast]);
 
   const getPosts = async () => {
-    if (posts) return;
     setFetchingPosts(true);
     try {
       const res = await fetch(`/api/posts/user/${username}`);
