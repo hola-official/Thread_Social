@@ -8,16 +8,18 @@ const Actions = ({ post: post_ }) => {
   const user = useRecoilValue(userAtom);
   const [post, setPost] = useState(post_);
   const [liked, setLiked] = useState(post.likes.includes(user?._id));
-  const showToast = useShowToast()
+  const showToast = useShowToast();
 
   const handleLikeAndUnlike = async () => {
-    if(!user) return showToast("Error", "You must be logged in to like a post", "error")
+    if (!user)
+      return showToast(
+        "Error",
+        "You must be logged in to like a post",
+        "error"
+      );
     try {
-      
-    } catch (error) {
-      
-    }
-  }
+    } catch (error) {}
+  };
 
   return (
     <Flex flexDir={"column"}>
@@ -104,17 +106,11 @@ const Actions = ({ post: post_ }) => {
         </svg>
       </Flex>
 
-      <Flex
-        color={"gray.light"}
-        gap={2}
-        fontSize={"sm"}
-        alignItems={"center"}
-      >
+      <Flex color={"gray.light"} gap={2} fontSize={"sm"} alignItems={"center"}>
         <Text>{post.replies.length} replies</Text>
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
         <Text>{post.likes.length} likes</Text>
       </Flex>
-
     </Flex>
   );
 };
