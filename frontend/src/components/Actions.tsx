@@ -3,7 +3,6 @@ import {
   Button,
   Flex,
   FormControl,
-  FormLabel,
   Input,
   Modal,
   ModalBody,
@@ -13,7 +12,6 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
@@ -27,7 +25,6 @@ const Actions = ({ post: post_ }) => {
   const [isLiking, setIsLiking] = useState(false);
   const [reply, setReply] = useState("");
   const [isReplying, setIsReplying] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const showToast = useShowToast();
 
   const handleLikeAndUnlike = async () => {
@@ -94,8 +91,13 @@ const Actions = ({ post: post_ }) => {
       const data = await res.json();
       console.log(data);
       setPost({ ...post, replies: [...post.replies, data] });
+      showToast("Success", "Reply posted successfully", "success")
+      onClose()
+      setPost('')
     } catch (error) {
       showToast("Error", error.message, "error");
+    } finally {
+      setIsReplying(false);
     }
   };
 
@@ -155,7 +157,7 @@ const Actions = ({ post: post_ }) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
