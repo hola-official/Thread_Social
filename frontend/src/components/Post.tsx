@@ -63,7 +63,7 @@ const Post = ({ post, postedBy }) => {
           return;
         }
         showToast("Success", "Post deleted", "success");
-      } catch (error) {}
+      } catch (error) { }
   };
 
   if (!user) return null;
