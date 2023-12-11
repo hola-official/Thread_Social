@@ -18,7 +18,10 @@ const Actions = ({ post: post_ }) => {
         "error"
       );
     try {
-    } catch (error) {}
+      const res = await fetch(`/api/posts/like/${post._id}`)
+    } catch (error) {
+      showToast("Error", error.message, "error")
+    }
   };
 
   return (
