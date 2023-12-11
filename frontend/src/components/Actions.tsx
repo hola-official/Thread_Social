@@ -26,8 +26,8 @@ const Actions = ({ post: post_ }) => {
   const [isLiking, setIsLiking] = useState(false);
   const [reply, setReply] = useState("");
   const [isReplying, setIsReplying] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure()
   const showToast = useShowToast();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleLikeAndUnlike = async () => {
     if (!user)
@@ -82,7 +82,7 @@ const Actions = ({ post: post_ }) => {
     if (isReplying) return;
     setIsReplying(true);
     try {
-      const res = await fetch(`/api/posts/reply${post._id}`, {
+      const res = await fetch(`/api/posts/reply/${post._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -130,15 +130,15 @@ const Actions = ({ post: post_ }) => {
         </svg>
 
         <svg
-          aria-label="Reply"
+          aria-label="Comment"
           fill="currentColor"
           height="20"
           role="img"
           viewBox="0 0 24 24"
           width="20"
-          // onClick={handleReply}
+          onClick={onOpen}
         >
-          <title>Reply</title>
+          <title>Comment</title>
           <path
             d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
             fill="none"
@@ -164,12 +164,12 @@ const Actions = ({ post: post_ }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <Input placeholder="Reply goes here..." />
+              <Input placeholder="Reply goes here..." value={reply} onChange={(e) => setReply(e.target.value)} />
             </FormControl>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3}>
+            <Button colorScheme="blue" mr={3} onClick={handleReply}>
               Reply
             </Button>
           </ModalFooter>
