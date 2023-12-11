@@ -112,7 +112,7 @@ const Post = ({ post, postedBy }) => {
             </Flex>
             <Flex alignItems={'center'} gap={4} onClick={(e) => e.preventDefault()}>
               <Text fontSize={'xs'} textAlign={'right'} color={'gray.light'}>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
-              {currentUser?._id === user._d && <DeleteIcon onClick={handleDeletePost} />}
+              {currentUser?._id === user._id && <DeleteIcon size={20} onClick={handleDeletePost} />}
               <Menu>
                 <MenuButton>
                   <BsThreeDots cursor={'pointer'} />
