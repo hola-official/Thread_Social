@@ -27,17 +27,21 @@ const Actions = ({ post: post_ }) => {
 
       const data = await res.json()
       console.log(data);
-      if(!liked) {
+      if (!liked) {
         // add the id of the user to the likes array
-        setPost({...post, likes: [...post.likes, user._id]})
-      }
-
-      if(post) {
-        showToast("Success", `post liked`, "success")
+        setPost({ ...post, likes: [...post.likes, user._id] })
       } else {
-        showToast("Success", 'Post unliked successfully', "success")
+        // remove the id of the user from the likes array
+        setPost({ ...post, likes: post.likes.filter((id) => id !== user._id) })
       }
-      
+      setLiked(!liked)
+
+      // if(post) {
+      //   showToast("Success", `post liked`, "success")
+      // } else {
+      //   showToast("Success", 'Post unliked successfully', "success")
+      // }
+
     } catch (error) {
       showToast("Error", error.message, "error")
     }
