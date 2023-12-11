@@ -9,17 +9,9 @@ const Actions = ({ post: post_ }) => {
   const [post, setPost] = useState(post_);
   const [liked, setLiked] = useState(post.likes.includes(user?._id));
   const [isLiking, setIsLiking] = useState(false);
-  const [reply, setReply] = useState('')
-  const [isReplying, setIsReplying] = useState(false)
+  const [reply, setReply] = useState("");
+  const [isReplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
-
-  const handleReply = async () => {
-    try {
-      
-    } catch (error) {
-      
-    }
-  }
 
   const handleLikeAndUnlike = async () => {
     if (!user)
@@ -61,6 +53,17 @@ const Actions = ({ post: post_ }) => {
     } finally {
       setIsLiking(false);
     }
+  };
+
+  const handleReply = async () => {
+    if (!user)
+      return showToast(
+        "Error",
+        "You must be logged in to like a post",
+        "error"
+      );
+    try {
+    } catch (error) {}
   };
 
   return (
