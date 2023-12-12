@@ -103,7 +103,7 @@ const Post = ({ post, postedBy, setPosts }) => {
                 }}
               />
             )}
-
+              
             {post.replies[1] && (
               <Avatar
                 src={post.replies[1].userProfilePic}
