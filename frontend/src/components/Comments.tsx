@@ -1,23 +1,23 @@
-import { Avatar, Flex, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from '@chakra-ui/react'
+import { Avatar, Divider, Flex, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { BsThreeDots } from 'react-icons/bs'
 import Actions from './Actions'
 
-const Comments = ({ reply }) => {
+const Comments = ({ reply, lastReply }) => {
 
     const [liked, setLiked] = useState(false)
 
     return (
         <>
             <Flex gap={4} my={2} py={2} w={'full'}>
-                <Avatar src={userAvatar} size={'sm'} name={username} />
+                <Avatar src={reply.userProfilePic} size={'sm'} name={reply.username} />
                 <Flex flexDir={'column'} gap={1} w={'full'} >
                     <Flex justifyContent={'space-between'}
                         alignItems={'center'}
                         w={'full'}>
                         <Text fontSize={'sm'} fontWeight={'bold'}>JohnDoe</Text>
 
-                        <Flex gap={2} alignItems={'center'}>
+                        {/* <Flex gap={2} alignItems={'center'}>
                             <Text fontSize={'sm'} color={'gray.light'}>{createdAt}</Text>
                             <Menu>
                                 <MenuButton>
@@ -35,13 +35,12 @@ const Comments = ({ reply }) => {
                                     </MenuGroup>
                                 </MenuList>
                             </Menu>
-                        </Flex>
+                        </Flex> */}
                     </Flex>
-                    <Text>{comment}</Text>
-                    <Actions liked={liked} setLiked={setLiked} />
-                    <Text>{likes + (liked ? 1 : 0)} likes</Text>
+                    <Text>{reply.text}</Text>
                 </Flex>
             </Flex>
+            <Divider/>
         </>
     )
 }
