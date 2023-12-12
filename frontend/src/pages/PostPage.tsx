@@ -26,34 +26,33 @@ import { useParams } from "react-router-dom";
 import useGetUserProfile from "../atoms/useGetUserProfile";
 
 const PostPage = () => {
-  const { user, loading } = useGetUserProfile()
-  const [post, setPost] = useState(null)
-  const showToast = useShowToast()
-  const { pid } = useParams()
+  const { user, loading } = useGetUserProfile();
+  const [post, setPost] = useState(null);
+  const showToast = useShowToast();
+  const { pid } = useParams();
 
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const res = await fetch(`/api/posts/${pid}`)
-        const data = await res.json()
+        const res = await fetch(`/api/posts/${pid}`);
+        const data = await res.json();
         if (data.error) {
-          showToast("Error", data.error, "error")
+          showToast("Error", data.error, "error");
           return;
         }
         console.log(data);
-
       } catch (error) {
-        showToast("Error", error, "error")
+        showToast("Error", error, "error");
       }
-    }
-  }, [])
+    };
+  }, []);
 
   if (!user && loading) {
     return (
-      <Flex justifyContent={'center'}>
-        <Spinner size={'xl'} />
+      <Flex justifyContent={"center"}>
+        <Spinner size={"xl"} />
       </Flex>
-    )
+    );
   }
   return (
     <>
