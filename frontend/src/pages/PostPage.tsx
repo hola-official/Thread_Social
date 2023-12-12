@@ -24,13 +24,15 @@ import Comments from "../components/Comments";
 import useShowToast from "../hooks/useShowToast";
 import { useParams } from "react-router-dom";
 import useGetUserProfile from "../hooks/useGetUserProfile";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { formatDistanceToNow } from "date-fns";
+import postsAtom from "../atoms/postsAtom";
 
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
+  const [posts, setPosts] = useRecoilState(postsAtom)
   const [post, setPost] = useState(null);
   const showToast = useShowToast();
   const { pid } = useParams();
