@@ -3,15 +3,16 @@ import { useRecoilValue } from "recoil";
 import { AiFillHome } from "react-icons/ai";
 import { Link as RouterLink } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
-import { Flex, Image, Link, useColorMode } from "@chakra-ui/react";
+import { Button, Flex, Image, Link, useColorMode } from "@chakra-ui/react";
 import userAtom from "../atoms/userAtom";
+import { FiLogOut } from 'react-icons/fi'
 
 const Header = () => {
         const { colorMode, toggleColorMode } = useColorMode();
         const user = useRecoilValue(userAtom)
 
         return (
-                <Flex justifyContent={"space-between"} mt={6} mb="12" alignItems={'center'} >
+                <Flex justifyContent={'space-between'} mt={6} mb="12" alignItems={'center'} >
                         {user && (
                                 <Link as={RouterLink} to='/'>
                                         <AiFillHome size={24} />
@@ -35,6 +36,10 @@ const Header = () => {
                                         <Link as={RouterLink} to={`${user.username}`} >
                                                 <RxAvatar size={30} />
                                         </Link>
+
+                                        <Button alignItems={'center'} ml={5}>
+                                                <FiLogOut size={20} />
+                                        </Button>
                                 </Flex>
                         )}
                 </Flex>
