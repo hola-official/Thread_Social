@@ -166,7 +166,7 @@ const PostPage = () => {
           <Comments key={reply._id} reply={reply} />
         })}
       </Divider>
-      
+
     </>
   );
 };
