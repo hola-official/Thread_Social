@@ -162,9 +162,9 @@ const PostPage = () => {
       <Divider my={4} />
 
       <Divider my={4} >
-        {post.replies.map(reply => {
+        {post.replies.map(reply => (
           <Comments key={reply._id} reply={reply} />
-        })}
+        ))}
       </Divider>
 
     </>
