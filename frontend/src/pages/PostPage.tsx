@@ -57,7 +57,7 @@ const PostPage = () => {
     );
   }
 
-  if (!post)
+  if (!post) return null
     return (
       <>
         <Flex
