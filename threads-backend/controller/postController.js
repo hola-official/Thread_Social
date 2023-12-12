@@ -49,7 +49,7 @@ const getPost = async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: "Post not found" });
     }
-    res.status(200).json({ message: "Post retrived", post });
+    res.status(200).json(post);
   } catch (err) {
     res.status(500).json({ message: err.message });
     console.log("Error in Get Post: ", err.message);
@@ -69,7 +69,7 @@ const deletePost = async (req, res) => {
         .json({ message: "Unauthorized to delete this post" });
     }
 
-    if(post.img) {
+    if (post.img) {
       const imgId = post.img.split('/').pop().split('.')[0];
       await cloudinary.uploader.destroy(imgId);
     }
