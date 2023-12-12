@@ -7,7 +7,7 @@ import Actions from '../components/Actions';
 import Comments from '../components/Comments';
 
 const PostPage = ({ postImg }) => {
-  const [liked, setLiked] = useState(false)
+  // const [liked, setLiked] = useState(false)
   return (
     <>
       <Flex w={'full'} gap={3} alignItems={'center'} justifyContent={'space-between'}>
@@ -20,7 +20,7 @@ const PostPage = ({ postImg }) => {
 
         <Flex alignItems={'center'} gap={4}>
           <Text fontSize={{ base: "xs", md: "sm" }} textAlign={'right'} color={'gray.light'} >2day</Text>
-          <Menu>
+          {/* <Menu>
             <MenuButton>
               <BsThreeDots cursor={'pointer'} />
             </MenuButton>
@@ -35,7 +35,7 @@ const PostPage = ({ postImg }) => {
                 <MenuItem color={'red'}>Report</MenuItem>
               </MenuGroup>
             </MenuList>
-          </Menu>
+          </Menu> */}
         </Flex>
       </Flex>
       <Text my={3}>Hello gbogbo aye!!!</Text>
@@ -65,9 +65,7 @@ const PostPage = ({ postImg }) => {
 
       <Divider my={4} />
 
-      <Comments username={'Ryan Florence'} likes={12} createdAt={'2 min ago'} userAvatar={'https://bit.ly/ryan-florence'} comment={"Keep it up!!"} />
-      <Comments username={'Prosper Otemuyiwa'} likes={2} createdAt={'15 min ago'} userAvatar={'https://bit.ly/prosper-baba'} comment={"My guy"} />
-      <Comments username={'Christian Nwamba'} likes={35} createdAt={'30 min ago'} userAvatar={'https://bit.ly/code-beast'} comment={"Wow!!!"} />
+      {/* <Comments username={'Ryan Florence'} likes={12} createdAt={'2 min ago'} userAvatar={'https://bit.ly/ryan-florence'} comment={"Keep it up!!"} /> */}
     </>
   )
 }
