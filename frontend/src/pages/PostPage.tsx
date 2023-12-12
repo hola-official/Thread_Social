@@ -20,19 +20,37 @@ import {
 } from "@chakra-ui/menu";
 import Actions from "../components/Actions";
 import Comments from "../components/Comments";
+import useShowToast from "../hooks/useShowToast";
+import { useParams } from "react-router-dom";
 
 const PostPage = ({ postImg }) => {
   // const [liked, setLiked] = useState(false)
   const [user, setUser] = useState(null)
+  const { username } = useParams();
+  const [loading, setLoading] = useState(true);
+  const showToast = useShowToast()
 
   useEffect(() => {
     const getUsers = async () => {
       try {
-        
+        const res = await fetch(`/api/users/profile/${username}`);
+        const data = await res.json();
+
+        if (data.error) {
+          showToast("Error", data.error, "error");
+          return;
+        }
+        // console.log(data);
+
+        setUser(data);
       } catch (error) {
-        
+        showToast("Error", error, "error");
+      } finally {
+        setLoading(false);
       }
     }
+
+    getUsers()
   },[])
   return (
     <>
