@@ -15,7 +15,7 @@ const Comments = ({ reply, lastReply }) => {
                     <Flex justifyContent={'space-between'}
                         alignItems={'center'}
                         w={'full'}>
-                        <Text fontSize={'sm'} fontWeight={'bold'}>JohnDoe</Text>
+                        <Text fontSize={'sm'} fontWeight={'bold'}>{reply.username}</Text>
 
                         {/* <Flex gap={2} alignItems={'center'}>
                             <Text fontSize={'sm'} color={'gray.light'}>{createdAt}</Text>
@@ -40,7 +40,8 @@ const Comments = ({ reply, lastReply }) => {
                     <Text>{reply.text}</Text>
                 </Flex>
             </Flex>
-            <Divider/>
+
+            {!lastReply ? <Divider/> : null}
         </>
     )
 }

@@ -50,7 +50,7 @@ const UserPage = () => {
       </Flex>)}
 
       {posts.map((post) => (
-        <Post key={post._id} post={post} postedBy={post.postedBy} />
+        <Post key={post._id} post={post} postedBy={post.postedBy} setPosts={setPosts} />
       ))}
       {/* <UserPosts likes={200} replies={50} postImg={'/post1.png'} postTitle={'What did you think about this guy'} postTime={'1d'} />
       <UserPosts likes={50} replies={10} postImg={'/post2.png'} postTitle={'This is great!!'} postTime={'5d'} />

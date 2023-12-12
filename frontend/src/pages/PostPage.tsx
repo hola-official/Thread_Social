@@ -160,10 +160,8 @@ const PostPage = () => {
       </Flex>
 
       <Divider my={4} />
-
-      <Divider my={4} />
         {post.replies.map(reply => (
-          <Comments key={reply._id} reply={reply} lastReply={reply._id === post.replies [post.replies.length -1]._id} />
+          <Comments key={reply._id} reply={reply} lastReply={reply._id === post.replies[post.replies.length -1]._id} />
         ))}
 
     </>
