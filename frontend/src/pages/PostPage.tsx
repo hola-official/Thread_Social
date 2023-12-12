@@ -38,9 +38,10 @@ const PostPage = () => {
         const data = await res.json()
         if (data.error) {
           showToast("Error", data.error, "error")
+          return;
         }
         console.log(data);
-        
+
       } catch (error) {
         showToast("Error", error, "error")
       }
