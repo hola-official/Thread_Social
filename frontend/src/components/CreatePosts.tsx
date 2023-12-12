@@ -17,7 +17,6 @@ import {
   Flex,
   Image,
   CloseButton,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import usePreviewImg from "../hooks/usePreviewImg";
@@ -95,6 +94,7 @@ const CreatePosts = () => {
         right={5}
         bg={useColorModeValue('gray.300', 'gray.dark')}
         onClick={onOpen}
+        size={{base: 'sm', sm: 'lg'}}
       >
         <AddIcon />
       </Button>
