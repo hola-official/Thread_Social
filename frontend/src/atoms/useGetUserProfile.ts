@@ -30,7 +30,7 @@ const useGetUserProfile = () => {
 
     getUsers()
   }, [username, showToast])
-  return{loading, user}
+  return { loading, user }
 }
 
 export default useGetUserProfile
