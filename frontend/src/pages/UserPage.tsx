@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import UserHeader from "../components/UserHeader";
-import UserPosts from "../components/UserPosts";
 import { useParams } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 import { Flex, Spinner, Text } from "@chakra-ui/react";
@@ -11,13 +10,12 @@ import postsAtom from "../atoms/postsAtom";
 
 const UserPage = () => {
   const { username } = useParams();
-  const { loading, user } = useGetUserProfile()
+  const { loading, user } = useGetUserProfile();
   const showToast = useShowToast();
-  const [posts, setPosts] = useRecoilState(postsAtom)
+  const [posts, setPosts] = useRecoilState(postsAtom);
   const [fetchingPosts, setFetchingPosts] = useState(false);
 
   useEffect(() => {
-
     const getPosts = async () => {
       setFetchingPosts(true);
       try {
@@ -30,10 +28,8 @@ const UserPage = () => {
         setFetchingPosts(false);
       }
     };
-    getPosts()
-  }, [username, showToast]);
-
-
+    getPosts();
+  }, [username, showToast, setPosts]);
 
   if (!user && loading) {
     return (
@@ -45,14 +41,25 @@ const UserPage = () => {
   return (
     <>
       <UserHeader user={user} />
-      {!fetchingPosts && posts.length === 0 && <Text textAlign={'center'} mt={5} fontSize={25} color={'gray.light'} >User has no posts</Text>}
+      {!fetchingPosts && posts.length === 0 && (
+        <Text textAlign={"center"} mt={5} fontSize={25} color={"gray.light"}>
+          User has no posts
+        </Text>
+      )}
 
-      {fetchingPosts && (<Flex justifyContent={'center'} my={12} >
-        <Spinner size={'xl'} />
-      </Flex>)}
+      {fetchingPosts && (
+        <Flex justifyContent={"center"} my={12}>
+          <Spinner size={"xl"} />
+        </Flex>
+      )}
 
       {posts.map((post) => (
-        <Post key={post._id} post={post} postedBy={post.postedBy} setPosts={setPosts} />
+        <Post
+          key={post._id}
+          post={post}
+          postedBy={post.postedBy}
+          setPosts={setPosts}
+        />
       ))}
       {/* <UserPosts likes={200} replies={50} postImg={'/post1.png'} postTitle={'What did you think about this guy'} postTime={'1d'} />
       <UserPosts likes={50} replies={10} postImg={'/post2.png'} postTitle={'This is great!!'} postTime={'5d'} />
