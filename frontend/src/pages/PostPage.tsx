@@ -40,6 +40,7 @@ const PostPage = () => {
           showToast("Error", data.error, "error");
           return;
         }
+        setPost(data)
         console.log(data);
       } catch (error) {
         showToast("Error", error, "error");
@@ -106,13 +107,13 @@ const PostPage = () => {
       </Box>
 
       <Flex>
-        <Actions liked={liked} setLiked={setLiked} />
+        {/* <Actions liked={liked} setLiked={setLiked} /> */}
       </Flex>
 
       <Flex color={"gray.light"} gap={2} fontSize={"sm"} alignItems={"center"}>
         <Text>200 replies</Text>
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
-        <Text>{21 + (liked ? 1 : 0)} likes</Text>
+        {/* <Text>{21 + (liked ? 1 : 0)} likes</Text> */}
       </Flex>
 
       <Divider my={4} />
