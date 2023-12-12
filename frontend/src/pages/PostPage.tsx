@@ -35,7 +35,6 @@ const PostPage = () => {
   const showToast = useShowToast();
   const { pid } = useParams();
   const currentUser = useRecoilValue(userAtom);
-  console.log(pid)
 
   useEffect(() => {
     const getPosts = async () => {
@@ -47,7 +46,6 @@ const PostPage = () => {
           return;
         }
         setPost(data);
-        console.log(data);
       } catch (error) {
         showToast("Error", error, "error");
       }
@@ -108,7 +106,7 @@ const PostPage = () => {
             {formatDistanceToNow(new Date(post.createdAt))} ago
           </Text>
           {currentUser?._id === user._id && (
-            <DeleteIcon size={20} onClick={handleDeletePost} />
+            <DeleteIcon cursor={'pointer'} size={20} onClick={handleDeletePost} />
           )}
           {/* <Menu>
             <MenuButton>
