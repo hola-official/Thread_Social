@@ -58,7 +58,7 @@ const Actions = ({ post }) => {
           }
           return p;
         });
-        
+
         setPosts(updatedPosts);
       } else {
         // remove the id of the user from the likes array
@@ -88,10 +88,10 @@ const Actions = ({ post }) => {
 
   const handleReply = async () => {
     if (!user) return showToast(
-        "Error",
-        "You must be logged in to reply a post",
-        "error"
-      );
+      "Error",
+      "You must be logged in to reply a post",
+      "error"
+    );
 
     if (isReplying) return;
     setIsReplying(true);
@@ -105,13 +105,13 @@ const Actions = ({ post }) => {
       });
 
       const data = await res.json();
-      if(data.error) {
+      if (data.error) {
         showToast("Error" data.error, 'error')
       }
       console.log(data);
       const updatedPosts = posts.map((p) => {
-        if(p._id === post._id) {
-          return {...p, replies: [data, ...p.replies]};
+        if (p._id === post._id) {
+          return { ...p, replies: [...p.replies, data] };
         }
       })
       showToast("Success", "Reply posted successfully", "success");
