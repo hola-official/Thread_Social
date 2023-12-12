@@ -23,6 +23,17 @@ import Comments from "../components/Comments";
 
 const PostPage = ({ postImg }) => {
   // const [liked, setLiked] = useState(false)
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        
+      } catch (error) {
+        
+      }
+    }
+  },[])
   return (
     <>
       <Flex
