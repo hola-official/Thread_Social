@@ -45,7 +45,8 @@ const PostPage = () => {
         showToast("Error", error, "error");
       }
     };
-  }, []);
+    getPosts();
+  }, [showToast, pid]);
 
   if (!user && loading) {
     return (
@@ -63,7 +64,7 @@ const PostPage = () => {
         justifyContent={"space-between"}
       >
         <Flex alignItems={"center"}>
-          <Avatar src={user.profilePic} name="Aliu Musa" size={"md"} mr={2} />
+          <Avatar src={user.profilePic} name={user.name} size={"md"} mr={2} />
           <Text fontSize={"sm"}>{user.username}</Text>
           <Image src="/verified.png" h={4} w={4} ml={2} />
         </Flex>
