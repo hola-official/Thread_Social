@@ -29,8 +29,8 @@ const useGetUserProfile = () => {
     }
 
     getUsers()
-  }, [])
-
+  }, [username, showToast])
+  return{loading, user}
 }
 
 export default useGetUserProfile
