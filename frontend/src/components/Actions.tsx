@@ -87,8 +87,7 @@ const Actions = ({ post }) => {
   };
 
   const handleReply = async () => {
-    if (!user)
-      return showToast(
+    if (!user) return showToast(
         "Error",
         "You must be logged in to reply a post",
         "error"
@@ -106,8 +105,15 @@ const Actions = ({ post }) => {
       });
 
       const data = await res.json();
+      if(data.error) {
+        showToast("Error" data.error, 'error')
+      }
       console.log(data);
-      setPost({ ...post, replies: [...post.replies, data] });
+      const updatedPosts = posts.map((p) => {
+        if(p._id === post._id) {
+          return {...p, replies: [data, ...p.replies]};
+        }
+      })
       showToast("Success", "Reply posted successfully", "success");
       onClose();
       setReply("");
