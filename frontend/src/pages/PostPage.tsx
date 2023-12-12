@@ -80,6 +80,7 @@ const PostPage = () => {
             color={"gray.light"}
           >
             2day
+            {/* {formatDistanceToNow(new Date(post.createdAt))} ago */}
           </Text>
           {/* <Menu>
             <MenuButton>
