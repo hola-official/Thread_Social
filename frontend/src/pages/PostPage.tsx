@@ -24,12 +24,18 @@ import Comments from "../components/Comments";
 import useShowToast from "../hooks/useShowToast";
 import { useParams } from "react-router-dom";
 import useGetUserProfile from "../hooks/useGetUserProfile";
+import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
+import { DeleteIcon } from "@chakra-ui/icons";
+import { formatDistanceToNow } from "date-fns";
 
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
   const [post, setPost] = useState(null);
   const showToast = useShowToast();
   const { pid } = useParams();
+  const currentUser = useRecoilValue(userAtom);
+  console.log(pid)
 
   useEffect(() => {
     const getPosts = async () => {
@@ -57,6 +63,26 @@ const PostPage = () => {
     );
   }
 
+  const handleDeletePost = async (e) => {
+    try {
+      e.preventDefault();
+      if (!window.confirm("Are you sure you want to delete this post?")) return;
+
+        const res = await fetch(`/api/posts/${pid}`, {
+          method: "DELETE",
+        });
+
+      const data = await res.json();
+      if (data.error) {
+        showToast("Error", data.error, "error");
+        return;
+      }
+      showToast("Success", "Post deleted", "success");
+    } catch (error) {
+      showToast("Error", error, "error")
+    }
+  };
+
   if (!post) return null;
 
   return (
@@ -73,52 +99,57 @@ const PostPage = () => {
           <Image src="/verified.png" h={4} w={4} ml={2} />
         </Flex>
 
-        <Flex alignItems={"center"} gap={4}>
-          <Text
-            fontSize={{ base: "xs", md: "sm" }}
-            textAlign={"right"}
-            color={"gray.light"}
-          >
-            2day
-            {/* {formatDistanceToNow(new Date(post.createdAt))} ago */}
+        <Flex
+          alignItems={"center"}
+          gap={4}
+          onClick={(e) => e.preventDefault()}
+        >
+          <Text fontSize={"xs"} textAlign={"right"} color={"gray.light"}>
+            {formatDistanceToNow(new Date(post.createdAt))} ago
           </Text>
+          {currentUser?._id === user._id && (
+            <DeleteIcon size={20} onClick={handleDeletePost} />
+          )}
           {/* <Menu>
             <MenuButton>
-              <BsThreeDots cursor={'pointer'} />
+              <BsThreeDots cursor={"pointer"} />
             </MenuButton>
             <MenuList>
               <MenuGroup>
-                <MenuItem color={'gray.light'}>Mute</MenuItem>
+                <MenuItem color={"gray.light"}>Mute</MenuItem>
                 <MenuDivider />
-                <MenuItem color={'red'}>Block</MenuItem>
+                <MenuItem color={"red"}>Block</MenuItem>
                 <MenuDivider />
-                <MenuItem color={'gray.light'}>Hide</MenuItem>
+                <MenuItem color={"gray.light"}>Hide</MenuItem>
                 <MenuDivider />
-                <MenuItem color={'red'}>Report</MenuItem>
+                <MenuItem color={"red"}>Report</MenuItem>
               </MenuGroup>
             </MenuList>
           </Menu> */}
         </Flex>
       </Flex>
       <Text my={3}>{post.text}</Text>
-      <Box
-        borderRadius={6}
-        overflow={"hidden"}
-        border={"1px solid"}
-        borderColor={"gray.light"}
-      >
-        <Image src={post.img} width={"full"} />
-      </Box>
+      {post.img && (
+
+        <Box
+          borderRadius={6}
+          overflow={"hidden"}
+          border={"1px solid"}
+          borderColor={"gray.light"}
+        >
+          <Image src={post.img} width={"full"} />
+        </Box>
+      )}
 
       <Flex>
         <Actions post={post} />
       </Flex>
 
-      <Flex color={"gray.light"} gap={2} fontSize={"sm"} alignItems={"center"}>
-        <Text>200 replies</Text>
+      {/* <Flex color={"gray.light"} gap={2} fontSize={"sm"} alignItems={"center"}>
+        <Text>{post.replies.length} replies</Text>
         <Box w={0.5} h={0.5} bg={"gray.light"}></Box>
         <Text>{post.likes.length} likes</Text>
-      </Flex>
+      </Flex> */}
 
       <Divider my={4} />
 
