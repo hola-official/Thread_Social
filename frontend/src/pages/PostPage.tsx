@@ -47,7 +47,7 @@ const PostPage = () => {
           showToast("Error", data.error, "error");
           return;
         }
-        setPost(data);
+        setPosts([data]);
       } catch (error) {
         showToast("Error", error, "error");
       }
@@ -68,9 +68,9 @@ const PostPage = () => {
       e.preventDefault();
       if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-        const res = await fetch(`/api/posts/${pid}`, {
-          method: "DELETE",
-        });
+      const res = await fetch(`/api/posts/${pid}`, {
+        method: "DELETE",
+      });
 
       const data = await res.json();
       if (data.error) {
@@ -162,9 +162,9 @@ const PostPage = () => {
       </Flex>
 
       <Divider my={4} />
-        {post.replies.map(reply => (
-          <Comments key={reply._id} reply={reply} lastReply={reply._id === post.replies[post.replies.length -1]._id} />
-        ))}
+      {post.replies.map(reply => (
+        <Comments key={reply._id} reply={reply} lastReply={reply._id === post.replies[post.replies.length - 1]._id} />
+      ))}
 
     </>
   );
