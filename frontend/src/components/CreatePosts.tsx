@@ -79,7 +79,7 @@ const CreatePosts = () => {
 
       onClose();
       setPostText("");
-      setImgUrl("");
+      // setImgUrl("");
     } catch (error) {
       showToast("Error", error, "error");
     } finally {
