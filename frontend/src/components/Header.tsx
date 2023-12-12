@@ -31,9 +31,11 @@ const Header = () => {
                         />
 
                         {user && (
-                                <Link as={RouterLink} to={`${user.username}`} >
-                                        <RxAvatar size={30} />
-                                </Link>
+                                <Flex>
+                                        <Link as={RouterLink} to={`${user.username}`} >
+                                                <RxAvatar size={30} />
+                                        </Link>
+                                </Flex>
                         )}
                 </Flex>
         );
