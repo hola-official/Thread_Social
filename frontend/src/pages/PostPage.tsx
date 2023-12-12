@@ -53,7 +53,7 @@ const PostPage = () => {
       }
     };
     getPosts();
-  }, [showToast, pid]);
+  }, [showToast, pid, setPosts]);
 
   if (!user && loading) {
     return (
