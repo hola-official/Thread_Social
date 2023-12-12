@@ -7,6 +7,7 @@ import {
   Divider,
   Flex,
   Image,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 import { Portal } from "@chakra-ui/portal";
@@ -22,17 +23,37 @@ import Actions from "../components/Actions";
 import Comments from "../components/Comments";
 import useShowToast from "../hooks/useShowToast";
 import { useParams } from "react-router-dom";
+import useGetUserProfile from "../atoms/useGetUserProfile";
 
-const PostPage = ({ postImg }) => {
-  // const [liked, setLiked] = useState(false)
-  const [user, setUser] = useState(null)
-  const { username } = useParams();
-  const [loading, setLoading] = useState(true);
+const PostPage = () => {
+  const { user, loading } = useGetUserProfile()
+  const [post, setPost] = useState(null)
   const showToast = useShowToast()
+  const { pid } = useParams()
 
   useEffect(() => {
-    
-  },[])
+    const getPosts = async () => {
+      try {
+        const res = await fetch(`/api/posts/${pid}`)
+        const data = await res.json()
+        if (data.error) {
+          showToast("Error", data.error, "error")
+        }
+        console.log(data);
+        
+      } catch (error) {
+        showToast("Error", error, "error")
+      }
+    }
+  }, [])
+
+  if (!user && loading) {
+    return (
+      <Flex justifyContent={'center'}>
+        <Spinner size={'xl'} />
+      </Flex>
+    )
+  }
   return (
     <>
       <Flex
@@ -42,8 +63,8 @@ const PostPage = ({ postImg }) => {
         justifyContent={"space-between"}
       >
         <Flex alignItems={"center"}>
-          <Avatar src="/aliumusa.jpeg" name="Aliu Musa" size={"md"} mr={2} />
-          <Text fontSize={"sm"}>Aliu Musa</Text>
+          <Avatar src={user.profilePic} name="Aliu Musa" size={"md"} mr={2} />
+          <Text fontSize={"sm"}>{user.username}</Text>
           <Image src="/verified.png" h={4} w={4} ml={2} />
         </Flex>
 
