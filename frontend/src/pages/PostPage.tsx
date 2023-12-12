@@ -38,6 +38,7 @@ const PostPage = () => {
   const { pid } = useParams();
   const currentUser = useRecoilValue(userAtom);
 
+  const currentPost = posts[0]
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -68,7 +69,7 @@ const PostPage = () => {
       e.preventDefault();
       if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-      const res = await fetch(`/api/posts/${pid}`, {
+      const res = await fetch(`/api/posts/${currentPost._id}`, {
         method: "DELETE",
       });
 
@@ -83,7 +84,7 @@ const PostPage = () => {
     }
   };
 
-  if (!post) return null;
+  if (!currentPost) return null;
 
   return (
     <>
@@ -105,7 +106,7 @@ const PostPage = () => {
           onClick={(e) => e.preventDefault()}
         >
           <Text fontSize={"xs"} textAlign={"right"} color={"gray.light"}>
-            {formatDistanceToNow(new Date(post.createdAt))} ago
+            {formatDistanceToNow(new Date(currentPost.createdAt))} ago
           </Text>
           {currentUser?._id === user._id && (
             <DeleteIcon cursor={'pointer'} size={20} onClick={handleDeletePost} />
@@ -128,8 +129,8 @@ const PostPage = () => {
           </Menu> */}
         </Flex>
       </Flex>
-      <Text my={3}>{post.text}</Text>
-      {post.img && (
+      <Text my={3}>{currentPost.text}</Text>
+      {currentPost.img && (
 
         <Box
           borderRadius={6}
@@ -137,12 +138,12 @@ const PostPage = () => {
           border={"1px solid"}
           borderColor={"gray.light"}
         >
-          <Image src={post.img} width={"full"} />
+          <Image src={currentPost.img} width={"full"} />
         </Box>
       )}
 
       <Flex>
-        <Actions post={post} />
+        <Actions post={currentPost} />
       </Flex>
 
       {/* <Flex color={"gray.light"} gap={2} fontSize={"sm"} alignItems={"center"}>
@@ -162,8 +163,8 @@ const PostPage = () => {
       </Flex>
 
       <Divider my={4} />
-      {post.replies.map(reply => (
-        <Comments key={reply._id} reply={reply} lastReply={reply._id === post.replies[post.replies.length - 1]._id} />
+      {currentPost.replies.map(reply => (
+        <Comments key={reply._id} reply={reply} lastReply={reply._id === currentPost.replies[currentPost.replies.length - 1]._id} />
       ))}
 
     </>
