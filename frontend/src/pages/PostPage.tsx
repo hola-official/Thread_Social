@@ -23,7 +23,7 @@ import Actions from "../components/Actions";
 import Comments from "../components/Comments";
 import useShowToast from "../hooks/useShowToast";
 import { useParams } from "react-router-dom";
-import useGetUserProfile from "../atoms/useGetUserProfile";
+import useGetUserProfile from "../hooks/useGetUserProfile";
 
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
