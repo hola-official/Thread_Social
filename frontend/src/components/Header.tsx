@@ -35,8 +35,8 @@ const Header = () => {
 
                         {user && (
                                 <Flex alignItems={'center'} gap={4}>
-                                        <Link as={RouterLink} to={`${user.username}`} >
-                                                <RxAvatar size={30} />
+                                        <Link as={RouterLink} to={`/${user.username}`} >
+                                                <RxAvatar size={24} />
                                         </Link>
 
                                         <Button  size={'xs'} onClick={logout}>
