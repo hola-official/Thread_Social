@@ -22,7 +22,7 @@ const Header = () => {
                         )}
 
                         {!user && (
-                                <Link as={RouterLink} to='/'>
+                                <Link as={RouterLink} onClick={}>
                                        Login
                                 </Link>
                         )}
@@ -49,6 +49,11 @@ const Header = () => {
                                                 <FiLogOut size={20} />
                                         </Button>
                                 </Flex>
+                        )}
+                           {!user && (
+                                <Link as={RouterLink} onClick={}>
+                                       Sign up
+                                </Link>
                         )}
                 </Flex>
         );
