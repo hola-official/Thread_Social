@@ -6,10 +6,12 @@ import { RxAvatar } from "react-icons/rx";
 import { Button, Flex, Image, Link, useColorMode } from "@chakra-ui/react";
 import userAtom from "../atoms/userAtom";
 import { FiLogOut } from 'react-icons/fi'
+import useLogout from "../hooks/useLogout";
 
 const Header = () => {
         const { colorMode, toggleColorMode } = useColorMode();
         const user = useRecoilValue(userAtom)
+        const logout = useLogout()
 
         return (
                 <Flex justifyContent={'space-between'} mt={6} mb="12" alignItems={'center'} >
@@ -37,7 +39,7 @@ const Header = () => {
                                                 <RxAvatar size={30} />
                                         </Link>
 
-                                        <Button  size={'xs'}>
+                                        <Button  size={'xs'} onClick={logout}>
                                                 <FiLogOut size={20} />
                                         </Button>
                                 </Flex>
