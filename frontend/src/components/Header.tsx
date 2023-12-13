@@ -1,5 +1,5 @@
 import React from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { AiFillHome } from "react-icons/ai";
 import { Link as RouterLink } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
@@ -13,7 +13,7 @@ const Header = () => {
         const { colorMode, toggleColorMode } = useColorMode();
         const user = useRecoilValue(userAtom)
         const logout = useLogout()
-        const setAuthScreen = useRecoilState(authScreenAtom)
+        const setAuthScreen = useSetRecoilState(authScreenAtom)
 
         return (
                 <Flex justifyContent={'space-between'} mt={6} mb="12" alignItems={'center'} >
@@ -24,7 +24,7 @@ const Header = () => {
                         )}
 
                         {!user && (
-                                <Link as={RouterLink} onClick={() => setAuthScreen("login")}>
+                                <Link as={RouterLink} to={'/auth'} onClick={() => setAuthScreen("login")}>
                                        Login
                                 </Link>
                         )}
@@ -53,7 +53,7 @@ const Header = () => {
                                 </Flex>
                         )}
                            {!user && (
-                                <Link as={RouterLink} onClick={() => setAuthScreen("signup")}>
+                                <Link as={RouterLink} to={'/auth'} onClick={() => setAuthScreen("signup")}>
                                        Sign up
                                 </Link>
                         )}
