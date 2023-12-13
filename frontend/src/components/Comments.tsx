@@ -1,11 +1,7 @@
-import { Avatar, Divider, Flex, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text } from '@chakra-ui/react'
+import { Avatar, Divider, Flex } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { BsThreeDots } from 'react-icons/bs'
-import Actions from './Actions'
 
 const Comments = ({ reply, lastReply }) => {
-
-    const [liked, setLiked] = useState(false)
 
     return (
         <>

@@ -22,7 +22,7 @@ const HomePage = () => {
           return;
         }
         console.log(data);
-        setPosts([data])
+        setPosts(data)
 
       } catch (error) {
         console.log(error);
